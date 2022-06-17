@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.2.32516.85
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FptEventWinApp", "frmLogin\FptEventWinApp.csproj", "{BE9A5D15-CF90-4199-ACB8-9ABCB509A924}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation layer", "Presentation layer", "{EE900327-5C3D-4164-8F39-0A353976817B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business layer", "Business layer", "{51F47F8B-2039-4E79-B27C-BBF610D17CEB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data layer", "Data layer", "{F01DC56E-396B-40A3-8D47-E85429FD5A52}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0DDB9AFF-3343-4CF6-8547-8DD76F1657C7}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BE9A5D15-CF90-4199-ACB8-9ABCB509A924}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE9A5D15-CF90-4199-ACB8-9ABCB509A924}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE9A5D15-CF90-4199-ACB8-9ABCB509A924}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE9A5D15-CF90-4199-ACB8-9ABCB509A924}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BE9A5D15-CF90-4199-ACB8-9ABCB509A924} = {EE900327-5C3D-4164-8F39-0A353976817B}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {79781D7B-BBD7-48F2-AD39-E2A37B89CF5F}
+	EndGlobalSection
+EndGlobal
