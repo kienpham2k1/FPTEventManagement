@@ -73,6 +73,9 @@ namespace FptEventWinApp
                         dayBox.btnDay.BackColor = Color.CornflowerBlue;
                     }
                     flpDays.Controls.Add(dayBox);
+                    dayBox.btnLocationCalen = dayBox.Location;
+                    dayBox.btnLocationCalen.X += 1;
+                    dayBox.btnLocationCalen.Y += 1;
                 }
             }
 

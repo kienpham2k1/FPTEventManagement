@@ -7,46 +7,65 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using FptEventWinApp;
+using FptEventWinApp.Content.TimeCalendar;
 
 namespace FptEventWinApp
 {
     public partial class DayBox : UserControl
     {
-        Button btn = new Button();
-
+        FlowLayoutPanel flowLayoutPanel = new FlowLayoutPanel();
+        public Point btnLocationTSC;
+        public Point btnLocationCalen;
         public DayBox()
         {
             InitializeComponent();
-            btnLocation = new Point();
+            btnLocationTSC = new Point();
         }
-        public Point btnLocation;
         private void BtnDay_MouseHover(object sender, EventArgs e)
         {
-            btn.Height = 500;
-            btn.Width = 100;
-            btn.Text = btnLocation.ToString();
-            btn.Location = new Point(btnLocation.X + btnDay.Width, btnLocation.Y);
-            if ((btnLocation.X >= TimeScheduleContainer.pnContent.Width - btnDay.Width)
-               && btnLocation.Y >= (TimeScheduleContainer.pnContent.Height - btn.Height))
+            flowLayoutPanel.AutoScroll = true;
+            flowLayoutPanel.Size = new System.Drawing.Size(400, 410);
+            for (int i = 0; i < 5; i++)
             {
-                btn.Location = new Point(btnLocation.X - btn.Width, TimeScheduleContainer.pnContent.Height - btn.Height);
+                EventFastView eventFastView = new EventFastView();
+                flowLayoutPanel.Controls.Add(eventFastView);
+                //eventFastView.Dock = DockStyle.Top; 
+                eventFastView.lbName.Text = btnLocationCalen.ToString() + "\n" + btnLocationTSC.ToString();
             }
-            else if (btnLocation.X >= TimeScheduleContainer.pnContent.Width - btnDay.Width)
+            //flowLayoutPanel.Location = new Point(0,0);
+            if ((btnLocationTSC.X >= TimeScheduleContainer.pnContent.Width - btnDay.Width - flowLayoutPanel.Width)
+               && btnLocationTSC.Y >= (TimeScheduleContainer.pnContent.Height - flowLayoutPanel.Height))
             {
-                btn.Location = new Point(btnLocation.X - btn.Width, btnLocation.Y);
+                flowLayoutPanel.Location = new Point(btnLocationTSC.X - flowLayoutPanel.Width,
+                                                    TimeScheduleContainer.pnContent.Height - flowLayoutPanel.Height);
             }
-            else if (btnLocation.Y >= (TimeScheduleContainer.pnContent.Height - btn.Height))
+            else if (btnLocationTSC.X >= TimeScheduleContainer.pnContent.Width - btnDay.Width - flowLayoutPanel.Width)
             {
-                btn.Location = new Point(btnLocation.X + btnDay.Width, TimeScheduleContainer.pnContent.Height - btn.Height);
+                flowLayoutPanel.Location = new Point(btnLocationTSC.X - flowLayoutPanel.Width,
+                                                    btnLocationTSC.Y);
+            }
+            else if (btnLocationTSC.Y >= (TimeScheduleContainer.pnContent.Height - flowLayoutPanel.Height))
+            {
+                flowLayoutPanel.Location = new Point(btnLocationTSC.X + btnDay.Width,
+                                                    TimeScheduleContainer.pnContent.Height - flowLayoutPanel.Height);
+            }
+            else
+            {
+                flowLayoutPanel.Location = new Point(btnLocationTSC.X + btnDay.Width, btnLocationTSC.Y);
+            }
+            if (btnLocationTSC.X == 0 &&
+                btnLocationCalen.X >= 1)
+            {
+                flowLayoutPanel.Location = new Point(0, 0);
             }
 
-            TimeScheduleContainer.pnContent.Controls.Add(btn);
-            btn.BringToFront();
+            TimeScheduleContainer.pnContent.Controls.Add(flowLayoutPanel);
+            flowLayoutPanel.BringToFront();
         }
         private void BtnDay_MouseLeave(object sender, EventArgs e)
         {
-            TimeScheduleContainer.pnContent.Controls.Remove(btn);
+            flowLayoutPanel.Controls.Clear();
+            TimeScheduleContainer.pnContent.Controls.Remove(flowLayoutPanel);
         }
     }
 }

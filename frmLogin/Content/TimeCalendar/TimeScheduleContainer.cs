@@ -41,7 +41,7 @@ namespace FptEventWinApp
                         dayBox.btnDay.BackColor = Color.CornflowerBlue;
                     }
                     flpDisplayDays.Controls.Add(dayBox);
-                    dayBox.btnLocation = dayBox.Location;
+                    dayBox.btnLocationTSC = dayBox.Location;
                 }
             }
         }
