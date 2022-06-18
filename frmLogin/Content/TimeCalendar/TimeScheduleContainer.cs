@@ -17,9 +17,9 @@ namespace FptEventWinApp
         public TimeScheduleContainer()
         {
             InitializeComponent();
-            Display(CalendarCus.firstInCalendar);
+            DisplayByMonth(CalendarCus.firstInCalendar);
         }
-        public static void Display(DateTime date)
+        public static void DisplayByMonth(DateTime date)
         {
               flpDisplayDays.Controls.Clear();
             for (int i = 0; i < 42; i++)
@@ -28,8 +28,7 @@ namespace FptEventWinApp
                 if (d.DayOfWeek >= DayOfWeek.Sunday && d.DayOfWeek <= DayOfWeek.Saturday)
                 {
                     DayBox dayBox = new DayBox();
-                    dayBox.Width = 212;
-                    dayBox.Height = 143;
+                    dayBox.Size = new Size(212, 143);
                     dayBox.btnDay.Dock = DockStyle.Fill;
                     dayBox.btnDay.Text = d.Day.ToString();
                     if (d.Month > CalendarCus.firstInMonth.Month || d.Month < CalendarCus.firstInMonth.Month)
@@ -44,6 +43,15 @@ namespace FptEventWinApp
                     dayBox.btnLocationTSC = dayBox.Location;
                 }
             }
+        }
+        private void BtnViewByMotnh_Click(object sender, EventArgs e)
+        {
+            DisplayByMonth(CalendarCus.firstInCalendar);
+        }
+
+        private void BtnViewByWeek_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -2,3 +2,6 @@
 
 # CS8625: Cannot convert null literal to non-nullable reference type.
 dotnet_diagnostic.CS8625.severity = none
+
+# CS1690: Accessing a member on a field of a marshal-by-reference class may cause a runtime exception
+dotnet_diagnostic.CS1690.severity = none

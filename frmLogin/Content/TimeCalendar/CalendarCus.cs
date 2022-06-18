@@ -73,9 +73,8 @@ namespace FptEventWinApp
                         dayBox.btnDay.BackColor = Color.CornflowerBlue;
                     }
                     flpDays.Controls.Add(dayBox);
-                    dayBox.btnLocationCalen = dayBox.Location;
-                    dayBox.btnLocationCalen.X += 1;
-                    dayBox.btnLocationCalen.Y += 1;
+                    dayBox.btnLocationCalen.X = dayBox.Location.X + 1;
+                    dayBox.btnLocationCalen.Y = dayBox.Location.Y+ 1;
                 }
             }
 
@@ -90,7 +89,7 @@ namespace FptEventWinApp
             firstInMonth = firstInMonth.AddMonths(1);
             calendar.SetDate(firstInMonth);
             Display(t);
-            TimeScheduleContainer.Display(t);
+            TimeScheduleContainer.DisplayByMonth(t);
         }
 
         private void BtnPre_Click(object sender, EventArgs e)
@@ -101,7 +100,7 @@ namespace FptEventWinApp
             DateTime t = calendar.SelectionRange.Start;
             t -= new TimeSpan((int)t.DayOfWeek, 0, 0, 0);
             Display(t);
-            TimeScheduleContainer.Display(t);
+            TimeScheduleContainer.DisplayByMonth(t);
         }
     }
 }
