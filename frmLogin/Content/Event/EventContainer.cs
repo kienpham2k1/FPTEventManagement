@@ -25,7 +25,10 @@ namespace FptEventWinApp
             {
                 EventReview eventPanel = new EventReview();
                 eventPanel.lbStartAt.Text = evt.Begin.ToString();
-                eventPanel.Dock = System.Windows.Forms.DockStyle.Top;
+                eventPanel.lbEndAt.Text = evt.End.ToString();
+                eventPanel.linkLbNameEvt.Text = evt.Name.ToString();
+                //eventPanel.picBoxView = null;
+                eventPanel.Dock = DockStyle.Top;
                 eventPanel.SendToBack();
                 flpContent.Controls.Add(eventPanel);
                 int left = (flpContent.Width - eventPanel.Width) / 2 - 15;

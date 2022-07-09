@@ -163,14 +163,13 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox picBoxView;
-        private System.Windows.Forms.LinkLabel linkLbNameEvt;
         private System.Windows.Forms.Panel pnTime;
         private System.Windows.Forms.Panel pnContent;
-        private System.Windows.Forms.Label lbSmallDescription;
-        private System.Windows.Forms.Label lbbyUser;
         public System.Windows.Forms.Label lbEndAt;
         public System.Windows.Forms.Label lbStartAt;
+        public System.Windows.Forms.LinkLabel linkLbNameEvt;
+        public System.Windows.Forms.Label lbSmallDescription;
+        public System.Windows.Forms.Label lbbyUser;
+        public System.Windows.Forms.PictureBox picBoxView;
     }
 }
