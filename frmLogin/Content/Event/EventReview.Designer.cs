@@ -75,6 +75,7 @@
             this.linkLbNameEvt.TabIndex = 2;
             this.linkLbNameEvt.TabStop = true;
             this.linkLbNameEvt.Text = "linkLbNameEvt";
+            this.linkLbNameEvt.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.LinkLbNameEvt_LinkClicked);
             // 
             // pnTime
             // 
@@ -167,9 +168,9 @@
         private System.Windows.Forms.LinkLabel linkLbNameEvt;
         private System.Windows.Forms.Panel pnTime;
         private System.Windows.Forms.Panel pnContent;
-        private System.Windows.Forms.Label lbEndAt;
-        private System.Windows.Forms.Label lbStartAt;
         private System.Windows.Forms.Label lbSmallDescription;
         private System.Windows.Forms.Label lbbyUser;
+        public System.Windows.Forms.Label lbEndAt;
+        public System.Windows.Forms.Label lbStartAt;
     }
 }

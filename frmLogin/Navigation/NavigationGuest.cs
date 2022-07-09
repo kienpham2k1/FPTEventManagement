@@ -39,7 +39,7 @@ namespace FptEventWinApp
             btnSearch.Image = FptEventWinApp.Properties.Resources.search_free_icon_font;
             btnHome.Image = FptEventWinApp.Properties.Resources.home;
             btnTimeSchedule.Image = FptEventWinApp.Properties.Resources.calendar;
-            //frmHomePage.openSearchBox();
+           // frmHomePage.openSearchBox();
         }
 
         private void BtnExit_Click(object sender, EventArgs e)

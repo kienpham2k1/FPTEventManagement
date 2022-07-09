@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FptEventWinApp.Content.Event;
 
 namespace FptEventWinApp
 {
@@ -15,6 +16,12 @@ namespace FptEventWinApp
         public EventReview()
         {
             InitializeComponent();
+        }
+
+        private void LinkLbNameEvt_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            EventContainer.flpContent.Controls.Clear();
+            EventContainer.flpContent.Controls.Add(new DetailEvent());
         }
     }
 }
