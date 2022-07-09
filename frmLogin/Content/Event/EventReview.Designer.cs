@@ -47,7 +47,6 @@
             this.picBoxView.BackColor = System.Drawing.Color.White;
             this.picBoxView.Dock = System.Windows.Forms.DockStyle.Right;
             this.picBoxView.Image = ((System.Drawing.Image)(resources.GetObject("picBoxView.Image")));
-            this.picBoxView.InitialImage = ((System.Drawing.Image)(resources.GetObject("picBoxView.InitialImage")));
             this.picBoxView.Location = new System.Drawing.Point(750, 0);
             this.picBoxView.MaximumSize = new System.Drawing.Size(250, 250);
             this.picBoxView.MinimumSize = new System.Drawing.Size(250, 250);

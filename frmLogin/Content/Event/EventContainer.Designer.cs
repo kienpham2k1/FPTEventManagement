@@ -276,6 +276,6 @@
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.GroupBox groupBox5;
-      static public System.Windows.Forms.FlowLayoutPanel flpContent;
+      static  public System.Windows.Forms.FlowLayoutPanel flpContent;
     }
 }
