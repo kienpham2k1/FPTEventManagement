@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
-    <RootNamespace>Bussiness_layer</RootNamespace>
+    <RootNamespace>BussinessLayer</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>

@@ -1,4 +1,4 @@
-﻿namespace FptEventWinApp.Content.Event
+﻿namespace FptEventWinApp
 {
     partial class DetailEvent
     {
@@ -91,33 +91,36 @@
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.richTextBox1.Location = new System.Drawing.Point(3, 78);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(1040, 250);
+            this.richTextBox1.Size = new System.Drawing.Size(1081, 250);
             this.richTextBox1.TabIndex = 3;
             this.richTextBox1.Text = "";
             // 
             // button1
             // 
+            this.button1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.button1.Location = new System.Drawing.Point(3, 334);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Text = "Like";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.button2.Location = new System.Drawing.Point(84, 334);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 5;
-            this.button2.Text = "button2";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Text = "Follow";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // flowLayoutPanel2
             // 
             this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 363);
             this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(1040, 272);
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(1081, 272);
             this.flowLayoutPanel2.TabIndex = 6;
             // 
             // DetailEvent
@@ -127,6 +130,7 @@
             this.Controls.Add(this.flowLayoutPanel1);
             this.Name = "DetailEvent";
             this.Size = new System.Drawing.Size(1084, 905);
+            this.Load += new System.EventHandler(this.DetailEvent_Load);
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);

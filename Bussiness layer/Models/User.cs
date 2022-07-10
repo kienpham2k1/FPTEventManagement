@@ -10,6 +10,7 @@ namespace BussinessLayer.Models
         public User()
         {
             Comments = new HashSet<Comment>();
+            Follows = new HashSet<Follow>();
         }
 
         public int Id { get; set; }
@@ -23,5 +24,6 @@ namespace BussinessLayer.Models
 
         public virtual Role Role { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<Follow> Follows { get; set; }
     }
 }

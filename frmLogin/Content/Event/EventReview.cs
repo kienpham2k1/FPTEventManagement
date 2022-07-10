@@ -8,11 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FptEventWinApp.Content.Event;
+using BussinessLayer.Models;
 
 namespace FptEventWinApp
 {
     public partial class EventReview : UserControl
     {
+        public Event @event { get; set; }
         public EventReview()
         {
             InitializeComponent();
@@ -21,7 +23,10 @@ namespace FptEventWinApp
         private void LinkLbNameEvt_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             EventContainer.flpContent.Controls.Clear();
-            EventContainer.flpContent.Controls.Add(new DetailEvent());
+            DetailEvent detailEvent = new DetailEvent {
+                @event = this.@event,
+            };
+            EventContainer.flpContent.Controls.Add(detailEvent);
         }
     }
 }

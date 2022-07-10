@@ -143,7 +143,7 @@ namespace BussinessLayer.Models
 
             modelBuilder.Entity<Follow>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => new { e.IdEvent, e.IdUser });
 
                 entity.ToTable("Follow");
 
@@ -152,13 +152,13 @@ namespace BussinessLayer.Models
                 entity.Property(e => e.IdUser).HasColumnName("id_user");
 
                 entity.HasOne(d => d.IdEventNavigation)
-                    .WithMany()
+                    .WithMany(p => p.Follows)
                     .HasForeignKey(d => d.IdEvent)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Follow_Event");
 
                 entity.HasOne(d => d.IdUserNavigation)
-                    .WithMany()
+                    .WithMany(p => p.Follows)
                     .HasForeignKey(d => d.IdUser)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Follow_User");

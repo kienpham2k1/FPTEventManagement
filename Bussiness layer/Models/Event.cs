@@ -10,6 +10,7 @@ namespace BussinessLayer.Models
         public Event()
         {
             Comments = new HashSet<Comment>();
+            Follows = new HashSet<Follow>();
             Images = new HashSet<Image>();
             Videos = new HashSet<Video>();
         }
@@ -29,6 +30,7 @@ namespace BussinessLayer.Models
 
         public virtual Category IdCategoryNavigation { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<Follow> Follows { get; set; }
         public virtual ICollection<Image> Images { get; set; }
         public virtual ICollection<Video> Videos { get; set; }
     }

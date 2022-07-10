@@ -15,6 +15,7 @@ namespace FptEventWinApp
     {
         IEventRepository eventRepo = new EventRepository();
         IImageRepository imageRepo = new ImageRepository();
+        IUserRepository userRepo = new UserRepository();
         public EventContainer()
         {
             InitializeComponent();
@@ -25,12 +26,19 @@ namespace FptEventWinApp
             foreach(Event evt in events)
             {
                 string urlPic = imageRepo.GetImage(evt.Id).Image1.ToString();
-                EventReview eventPanel = new EventReview();
-                eventPanel.lbStartAt.Text = evt.Begin.ToString();
-                eventPanel.lbEndAt.Text = evt.End.ToString();
+                EventReview eventPanel = new EventReview 
+                {
+                    @event = evt,
+                };
+                eventPanel.lbStartAt.Text = evt.Begin.ToString("MM/dd/yyyy");
+                eventPanel.lbEndAt.Text = evt.End.ToString("MM/dd/yyyy");
                 eventPanel.linkLbNameEvt.Text = evt.Name.ToString();
-                
-                eventPanel.picBoxView.Image = System.Drawing.Image.FromFile(@$"{urlPic}");
+                try
+                {
+                    eventPanel.lbbyUser.Text = userRepo.GetUser(evt.IdUser).Name ;
+                    eventPanel.picBoxView.Image = System.Drawing.Image.FromFile(@$"{urlPic}");
+                }
+                catch { }
                 eventPanel.Dock = DockStyle.Top;
                 eventPanel.SendToBack();
                 flpContent.Controls.Add(eventPanel);
