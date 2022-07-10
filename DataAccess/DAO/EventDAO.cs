@@ -30,7 +30,8 @@ namespace DataAccess
         public Event GetEvent(int idEvent)
         {
             Event @event = null;
-            try {
+            try
+            {
                 var context = new FEventContext();
                 @event = context.Events.SingleOrDefault(x => x.Id == idEvent);
             }
@@ -56,6 +57,27 @@ namespace DataAccess
             }
             return events;
         }
+        public IEnumerable<Event> GetEvents(DateTime time)
+        {
+            IEnumerable<Event> events = null;
+            DateTime startDay = time.Date;
+            DateTime endDay = startDay.AddDays(1);
+            try
+            {
+                using (var context = new FEventContext())
+                {
+                    //events = from item in context.Events where item.Begin >= newDay || item.End < endDay
+                    //         select item;
+                    var listAll = GetEvents();
+                    events = from item in listAll where (item.Begin >= startDay && item.End < endDay) select item;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return events;
+        }
         public Follow Follow(int userId, int eventId)
         {
             Follow follow = null;
@@ -65,11 +87,11 @@ namespace DataAccess
                 if (context.Follows.SingleOrDefault(x => x.IdUser == userId && x.IdEvent == eventId) == null)
                 {
                     follow = new Follow
-                {
-                    IdUser = userId,
-                    IdEvent = eventId,
-                };
-                context.Follows.Add(follow);
+                    {
+                        IdUser = userId,
+                        IdEvent = eventId,
+                    };
+                    context.Follows.Add(follow);
                     Event _evet = GetEvent(eventId);
                     context.Events.Update(_evet);
                     context.SaveChanges();

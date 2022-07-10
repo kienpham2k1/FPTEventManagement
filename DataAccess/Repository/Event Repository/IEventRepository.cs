@@ -17,6 +17,7 @@ namespace DataAccess.Repository
         //void Like(int userId, int eventId);
         Follow Follow(int userId, int eventId);
         IEnumerable<Event> GetEvents();
+        IEnumerable<Event> GetEvents(DateTime time);
         //IEnumerable<Event> GetEvents(string nameEvent = null, IEnumerable<Event> searchList = null);
         //IEnumerable<Event> GetEvents(int? idUserCreate = null);
         //IEnumerable<Event> GetEvents(int? idFollower = null, IEnumerable<Event> searchList = null);

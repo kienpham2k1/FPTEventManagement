@@ -64,7 +64,7 @@ namespace FptEventWinApp
                     dayBox.Width = 54;
                     dayBox.Height = 54;
                     dayBox.btnDay.Dock = DockStyle.Fill;    
-                    dayBox.btnDay.Text = d.Day.ToString();
+                    //dayBox.btnDay.Text = d.Day.ToString();
                     if (d.Month > firstInMonth.Month || d.Month < firstInMonth.Month)
                     {
                         dayBox.btnDay.ForeColor = Color.DarkGray;

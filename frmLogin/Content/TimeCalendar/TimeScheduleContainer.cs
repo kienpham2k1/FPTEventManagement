@@ -17,18 +17,21 @@ namespace FptEventWinApp
         public TimeScheduleContainer()
         {
             InitializeComponent();
-            //DisplayByMonth(CalendarCus.firstInCalendar);
-            TimeScheduleContainer.flpDisplayDays.Controls.Add(new FptEventWinApp.Content.TimeCalendar.Week());
+            DisplayByMonth(CalendarCus.firstInCalendar);
+            //TimeScheduleContainer.flpDisplayDays.Controls.Add(new FptEventWinApp.Content.TimeCalendar.Week());
         }
         public static void DisplayByMonth(DateTime Date)
         {
-              flpDisplayDays.Controls.Clear();
+            flpDisplayDays.Controls.Clear();
             for (int i = 0; i < 42; i++)
             {
                 var d = Date.AddDays(i);
                 if (d.DayOfWeek >= DayOfWeek.Sunday && d.DayOfWeek <= DayOfWeek.Saturday)
                 {
-                    DayBox dayBox = new DayBox();
+                    DayBox dayBox = new DayBox
+                    {
+                        time = d,
+                    }                        ;
                     dayBox.Size = new Size(212, 143);
                     dayBox.btnDay.Dock = DockStyle.Fill;
                     dayBox.btnDay.Text = d.Day.ToString();

@@ -1,4 +1,4 @@
-﻿namespace FptEventWinApp.Content.Event
+﻿namespace FptEventWinApp
 {
     partial class Comment
     {

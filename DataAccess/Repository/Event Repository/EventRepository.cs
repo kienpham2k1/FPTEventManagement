@@ -11,5 +11,6 @@ namespace DataAccess.Repository
     {
         public IEnumerable<Event> GetEvents() => EventDAO.Instance.GetEvents();
         public Follow Follow(int userId, int eventId) => EventDAO.Instance.Follow(userId, eventId);
+        public IEnumerable<Event> GetEvents(DateTime time) => EventDAO.Instance.GetEvents(time);
     }
 }

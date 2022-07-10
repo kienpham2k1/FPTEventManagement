@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace FptEventWinApp.Content.Event
+namespace FptEventWinApp
 {
     public partial class Comment : UserControl
     {

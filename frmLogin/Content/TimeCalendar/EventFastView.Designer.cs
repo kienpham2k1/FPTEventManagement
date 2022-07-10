@@ -1,4 +1,4 @@
-﻿namespace FptEventWinApp.Content.TimeCalendar
+﻿namespace FptEventWinApp
 {
     partial class EventFastView
     {
@@ -75,6 +75,7 @@
             this.Controls.Add(this.Image);
             this.Name = "EventFastView";
             this.Size = new System.Drawing.Size(300, 100);
+            this.Load += new System.EventHandler(this.EventFastView_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Image)).EndInit();
             this.ResumeLayout(false);
 
