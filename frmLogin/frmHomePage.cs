@@ -15,17 +15,13 @@ using DataAccess.Repository;
 //{
 public partial class frmHomePage : Form
 {
-    //static Panel pnNavigation = this.ac
     IEventRepository eventRepo = new EventRepository();
     public static User userLogin { get; set; }
-    //var _events = eventRepo.GetEvents();
     public frmHomePage()
     {
         InitializeComponent();
         addNavBar();
-        //btnExit.Hide();
         loadEvent();
-        //userLogin = null;
     }
     public static void addNavBar()
     {
@@ -46,14 +42,26 @@ public partial class frmHomePage : Form
     }
 
     //Load List of all event
-    public static void loadEvent(IEnumerable<Event> events = null)
+    public static void loadEvent(IEnumerable<Event> events = null, int? back = null)
     {
         if (events != null)
         {
-            openContainer(new EventContainer
+            if (back != null)
             {
-                events = events
-            });
+                openContainer(new EventContainer
+                {
+                    events = events,
+                    back = back.Value,
+                });
+            }
+            else
+            {
+                openContainer(new EventContainer
+                {
+                    events = events,
+                    back = 1,
+                });
+            }
         }
         else
         {

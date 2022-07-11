@@ -12,6 +12,7 @@ namespace BussinessLayer.Models
             Comments = new HashSet<Comment>();
             Follows = new HashSet<Follow>();
             Images = new HashSet<Image>();
+            Likes = new HashSet<Like>();
             Videos = new HashSet<Video>();
         }
 
@@ -32,6 +33,7 @@ namespace BussinessLayer.Models
         public virtual ICollection<Comment> Comments { get; set; }
         public virtual ICollection<Follow> Follows { get; set; }
         public virtual ICollection<Image> Images { get; set; }
+        public virtual ICollection<Like> Likes { get; set; }
         public virtual ICollection<Video> Videos { get; set; }
     }
 }

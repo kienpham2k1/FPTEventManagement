@@ -18,6 +18,7 @@ namespace FptEventWinApp
         IUserRepository userRepo = new UserRepository();
         public IEnumerable<Event> events { get; set; }
         public User userLogin { get; set; }
+        public int back { get; set; }
         public EventContainer()
         {
             InitializeComponent();
@@ -34,6 +35,7 @@ namespace FptEventWinApp
                 EventReview eventReview = new EventReview
                 {
                     @event = evt,
+                    back = this.back,
                 };
          
                 eventReview.Dock = DockStyle.Top;

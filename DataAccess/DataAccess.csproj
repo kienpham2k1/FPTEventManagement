@@ -8,9 +8,4 @@
     <ProjectReference Include="..\Bussiness layer\BussinessLayer.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Repository\Like Repository\" />
-    <Folder Include="Repository\CommentRepository\" />
-  </ItemGroup>
-
 </Project>

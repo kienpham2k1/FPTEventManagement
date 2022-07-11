@@ -22,6 +22,7 @@ namespace BussinessLayer.Models
         public virtual DbSet<Event> Events { get; set; }
         public virtual DbSet<Follow> Follows { get; set; }
         public virtual DbSet<Image> Images { get; set; }
+        public virtual DbSet<Like> Likes { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<User> Users { get; set; }
         public virtual DbSet<Video> Videos { get; set; }
@@ -181,6 +182,29 @@ namespace BussinessLayer.Models
                     .HasForeignKey(d => d.IdEvent)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Image_Event");
+            });
+
+            modelBuilder.Entity<Like>(entity =>
+            {
+                entity.HasKey(e => new { e.IdEvent, e.IdUser });
+
+                entity.ToTable("Like");
+
+                entity.Property(e => e.IdEvent).HasColumnName("id_event");
+
+                entity.Property(e => e.IdUser).HasColumnName("id_user");
+
+                entity.HasOne(d => d.IdUserNavigation)
+                    .WithMany(p => p.Likes)
+                    .HasForeignKey(d => d.IdUser)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Like_Event");
+
+                entity.HasOne(d => d.IdUser1)
+                    .WithMany(p => p.Likes)
+                    .HasForeignKey(d => d.IdUser)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_Like_User");
             });
 
             modelBuilder.Entity<Role>(entity =>

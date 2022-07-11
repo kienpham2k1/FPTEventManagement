@@ -18,6 +18,7 @@ namespace FptEventWinApp
         IUserRepository userRepo = new UserRepository();
         public Event @event { get; set; }
         public User userLogin { get; set; }
+        public int back { get; set; }
         public EventReview()
         {
             InitializeComponent();
@@ -29,6 +30,8 @@ namespace FptEventWinApp
             DetailEvent detailEvent = new DetailEvent
             {
                 @event = this.@event,
+                userLogin = this.userLogin,
+                back = this.back,
             };
             EventContainer.flpContent.Controls.Add(detailEvent);
         }
@@ -41,7 +44,7 @@ namespace FptEventWinApp
             string? urlPic = null;
             if (imageRepo.GetImage(@event.Id) != null)
             {
-                 urlPic = imageRepo.GetImage(@event.Id).Image1.ToString();
+                urlPic = imageRepo.GetImage(@event.Id).Image1.ToString();
             }
             try
             {
@@ -52,6 +55,41 @@ namespace FptEventWinApp
                 }
             }
             catch { }
+        }
+        private void PicBoxView_Click(object sender, EventArgs e)
+        {
+            EventContainer.flpContent.Controls.Clear();
+            DetailEvent detailEvent = new DetailEvent
+            {
+                @event = this.@event,
+                userLogin = this.userLogin,
+                back = this.back,
+            };
+            EventContainer.flpContent.Controls.Add(detailEvent);
+        }
+
+        private void PnContent_MouseClick(object sender, MouseEventArgs e)
+        {
+            EventContainer.flpContent.Controls.Clear();
+            DetailEvent detailEvent = new DetailEvent
+            {
+                @event = this.@event,
+                userLogin = this.userLogin,
+                back = this.back,
+            };
+            EventContainer.flpContent.Controls.Add(detailEvent);
+        }
+
+        private void EventReview_MouseClick(object sender, MouseEventArgs e)
+        {
+            EventContainer.flpContent.Controls.Clear();
+            DetailEvent detailEvent = new DetailEvent
+            {
+                @event = this.@event,
+                userLogin = this.userLogin,
+                back = this.back,
+            };
+            EventContainer.flpContent.Controls.Add(detailEvent);
         }
     }
 }

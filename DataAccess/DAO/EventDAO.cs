@@ -107,5 +107,36 @@ namespace DataAccess
             }
             return follow;
         }
+        public Like Like(int userId, int eventId)
+        {
+            Like like = null;
+            try
+            {
+                var context = new FEventContext();
+                if (context.Likes.SingleOrDefault(x => x.IdUser == userId && x.IdEvent == eventId) == null)
+                {
+                    like = new Like
+                    {
+                        IdUser = userId,
+                        IdEvent = eventId,
+                    };
+                    context.Likes.Add(like);
+                    Event _evet = GetEvent(eventId);
+                    context.Events.Update(_evet);
+                    context.SaveChanges();
+                }
+                else
+                {
+                    var _like = context.Likes.SingleOrDefault(x => x.IdUser == userId && x.IdEvent == eventId);
+                    context.Likes.Remove(_like);
+                    context.SaveChanges();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return like;
+        }
     }
 }

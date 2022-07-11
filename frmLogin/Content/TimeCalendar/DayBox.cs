@@ -102,7 +102,7 @@ namespace FptEventWinApp
         {
             if (events.Count() > 0)
             {
-                frmHomePage.loadEvent(events);
+                frmHomePage.loadEvent(events, 2);
             }
         }
     }

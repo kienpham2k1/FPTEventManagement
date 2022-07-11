@@ -55,6 +55,7 @@
             this.picBoxView.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picBoxView.TabIndex = 0;
             this.picBoxView.TabStop = false;
+            this.picBoxView.Click += new System.EventHandler(this.PicBoxView_Click);
             // 
             // linkLbNameEvt
             // 
@@ -117,6 +118,7 @@
             this.pnContent.Name = "pnContent";
             this.pnContent.Size = new System.Drawing.Size(650, 250);
             this.pnContent.TabIndex = 4;
+            this.pnContent.MouseClick += new System.Windows.Forms.MouseEventHandler(this.PnContent_MouseClick);
             // 
             // lbbyUser
             // 
