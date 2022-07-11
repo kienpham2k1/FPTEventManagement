@@ -9,13 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using FptEventWinApp;
 using BussinessLayer.Models;
+using DataAccess.Repository;
 
 //namespace frmHomePage
 //{
 public partial class frmHomePage : Form
 {
     //static Panel pnNavigation = this.ac
+    IEventRepository eventRepo = new EventRepository();
     public static User userLogin { get; set; }
+    //var _events = eventRepo.GetEvents();
     public frmHomePage()
     {
         InitializeComponent();
@@ -43,9 +46,19 @@ public partial class frmHomePage : Form
     }
 
     //Load List of all event
-    public static void loadEvent()
+    public static void loadEvent(IEnumerable<Event> events = null)
     {
-        openContainer(new EventContainer());
+        if (events != null)
+        {
+            openContainer(new EventContainer
+            {
+                events = events
+            });
+        }
+        else
+        {
+            openContainer(new EventContainer());
+        }
     }
     public static void loadCalendar()
     {
@@ -57,4 +70,3 @@ public partial class frmHomePage : Form
 
     }
 }
-//}

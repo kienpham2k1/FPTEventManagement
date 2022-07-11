@@ -9,7 +9,7 @@ namespace DataAccess.Repository
 {
     public class EventRepository : IEventRepository
     {
-        public IEnumerable<Event> GetEvents() => EventDAO.Instance.GetEvents();
+        public IEnumerable<Event> GetEvents(DateTime? time) => EventDAO.Instance.GetEvents(time);
         public Follow Follow(int userId, int eventId) => EventDAO.Instance.Follow(userId, eventId);
         public IEnumerable<Event> GetEvents(DateTime time) => EventDAO.Instance.GetEvents(time);
     }

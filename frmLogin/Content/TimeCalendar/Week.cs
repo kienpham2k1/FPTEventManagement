@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BussinessLayer.Models;
 
 namespace FptEventWinApp
 {
     public partial class Week : UserControl
     {
         DateTime dateTime { get; set; }
+        public User userLogin { get; set; }
         public Week()
         {
             InitializeComponent();

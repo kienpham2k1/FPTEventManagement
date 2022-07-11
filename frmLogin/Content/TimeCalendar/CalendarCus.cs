@@ -52,7 +52,7 @@ namespace FptEventWinApp
         private void Display(DateTime date)
         {
             flpDays.Controls.Clear();
-            lbMonth.Text = GetMonth(firstInMonth.Month);
+            lbMonth.Text = GetMonth(firstInMonth.Month) + " - " + firstInMonth.Year;
             linkLbNow.Text = DateTime.Now.ToString();
             for (int i = 0; i < 42; i++)
             {

@@ -124,6 +124,7 @@
             this.btnViewByWeek.TabIndex = 0;
             this.btnViewByWeek.Text = "Week";
             this.btnViewByWeek.UseVisualStyleBackColor = false;
+            this.btnViewByWeek.Visible = false;
             this.btnViewByWeek.Click += new System.EventHandler(this.BtnViewByWeek_Click);
             // 
             // btnViewByMotnh
@@ -165,7 +166,7 @@
         private System.Windows.Forms.Button btnAddNewEvent;
         private CalendarCus calendarCus1;
         private System.Windows.Forms.Panel pnDisplay;
-       static public System.Windows.Forms.Panel pnContent;
-      static  public System.Windows.Forms.FlowLayoutPanel flpDisplayDays;
+        static public System.Windows.Forms.Panel pnContent;
+        static public System.Windows.Forms.FlowLayoutPanel flpDisplayDays;
     }
 }

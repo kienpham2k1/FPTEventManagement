@@ -51,6 +51,7 @@
             this.btnDay.TabIndex = 0;
             this.btnDay.Text = "Day";
             this.btnDay.UseVisualStyleBackColor = false;
+            this.btnDay.Click += new System.EventHandler(this.BtnDay_Click);
             this.btnDay.MouseLeave += new System.EventHandler(this.BtnDay_MouseLeave);
             this.btnDay.MouseHover += new System.EventHandler(this.BtnDay_MouseHover);
             // 

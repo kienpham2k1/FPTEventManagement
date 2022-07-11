@@ -33,6 +33,7 @@ namespace DataAccess
             {
                 var context = new FEventContext();
                 images = from item in context.Images where item.IdEvent == idEvent orderby item.Id select item;
+                if (images.Count() < 1) return images = null;
             }
             catch (Exception ex)
             {
@@ -46,8 +47,11 @@ namespace DataAccess
             try
             {
                 var images = GetImages(idEvent);
-                image = images.FirstOrDefault();
-               
+                if (images != null)
+                {
+                    image = images.FirstOrDefault();
+                }
+
             }
             catch (Exception ex)
             {

@@ -16,34 +16,31 @@ namespace FptEventWinApp
         IEventRepository eventRepo = new EventRepository();
         IImageRepository imageRepo = new ImageRepository();
         IUserRepository userRepo = new UserRepository();
+        public IEnumerable<Event> events { get; set; }
+        public User userLogin { get; set; }
         public EventContainer()
         {
             InitializeComponent();
         }
         private void ListEvent_Load(object sender, EventArgs e)
         {
-            var events = eventRepo.GetEvents().ToList();
-            foreach(Event evt in events)
+            if (events == null)
             {
-                string urlPic = imageRepo.GetImage(evt.Id).Image1.ToString();
-                EventReview eventPanel = new EventReview 
+                DateTime? time = DateTime.Now;
+                events = eventRepo.GetEvents(time).ToList();
+            }
+            foreach (Event evt in events)
+            {
+                EventReview eventReview = new EventReview
                 {
                     @event = evt,
                 };
-                eventPanel.lbStartAt.Text = evt.Begin.ToString("MM/dd/yyyy");
-                eventPanel.lbEndAt.Text = evt.End.ToString("MM/dd/yyyy");
-                eventPanel.linkLbNameEvt.Text = evt.Name.ToString();
-                try
-                {
-                    eventPanel.lbbyUser.Text = userRepo.GetUser(evt.IdUser).Name ;
-                    eventPanel.picBoxView.Image = System.Drawing.Image.FromFile(@$"{urlPic}");
-                }
-                catch { }
-                eventPanel.Dock = DockStyle.Top;
-                eventPanel.SendToBack();
-                flpContent.Controls.Add(eventPanel);
-                int left = (flpContent.Width - eventPanel.Width) / 2 - 15;
-                eventPanel.Margin = new Padding(left, left, left, 0);
+         
+                eventReview.Dock = DockStyle.Top;
+                eventReview.SendToBack();
+                flpContent.Controls.Add(eventReview);
+                int left = (flpContent.Width - eventReview.Width) / 2 - 15;
+                eventReview.Margin = new Padding(left, left, left, 0);
             }
         }
     }

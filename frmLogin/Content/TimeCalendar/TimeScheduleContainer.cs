@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FptEventWinApp;
+using BussinessLayer.Models;
 
 namespace FptEventWinApp
 {
     public partial class TimeScheduleContainer : UserControl
     {
         //static public Point btnDayLocation;
+        public User userLogin { get; set; }
         public TimeScheduleContainer()
         {
             InitializeComponent();

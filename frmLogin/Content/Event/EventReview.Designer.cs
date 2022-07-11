@@ -151,6 +151,7 @@
             this.Controls.Add(this.picBoxView);
             this.Name = "EventReview";
             this.Size = new System.Drawing.Size(1000, 250);
+            this.Load += new System.EventHandler(this.EventReview_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picBoxView)).EndInit();
             this.pnTime.ResumeLayout(false);
             this.pnTime.PerformLayout();

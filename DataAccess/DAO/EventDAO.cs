@@ -41,14 +41,14 @@ namespace DataAccess
             }
             return @event;
         }
-        public IEnumerable<Event> GetEvents()
+        public IEnumerable<Event> GetEvents(DateTime? time)
         {
             IEnumerable<Event> events = null;
             try
             {
                 using (var context = new FEventContext())
                 {
-                    events = context.Events.ToList();
+                    events = from item in context.Events.ToList() where (item.Begin >= time.Value.Date) orderby item.Begin ascending select item;
                 }
             }
             catch (Exception ex)
@@ -66,10 +66,8 @@ namespace DataAccess
             {
                 using (var context = new FEventContext())
                 {
-                    //events = from item in context.Events where item.Begin >= newDay || item.End < endDay
-                    //         select item;
-                    var listAll = GetEvents();
-                    events = from item in listAll where (item.Begin >= startDay && item.End < endDay) select item;
+                    //var listAll = GetEvents();
+                    events = from item in context.Events.ToList() where (item.Begin >= startDay && item.End < endDay) orderby item.Begin ascending select item;
                 }
             }
             catch (Exception ex)

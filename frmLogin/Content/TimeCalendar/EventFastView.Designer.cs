@@ -42,7 +42,7 @@
             this.Image.Location = new System.Drawing.Point(0, 0);
             this.Image.Name = "Image";
             this.Image.Size = new System.Drawing.Size(100, 100);
-            this.Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Image.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.Image.TabIndex = 0;
             this.Image.TabStop = false;
             // 

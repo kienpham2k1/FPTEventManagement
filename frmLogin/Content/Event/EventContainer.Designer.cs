@@ -43,12 +43,16 @@
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnAddNewEvent = new System.Windows.Forms.Button();
             this.pnContentNewest.SuspendLayout();
+            flpContent.SuspendLayout();
             this.panelFilter.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnContentNewest
@@ -90,6 +94,7 @@
             flpContent.AutoScroll = true;
             flpContent.AutoSize = true;
             flpContent.BackColor = System.Drawing.Color.WhiteSmoke;
+            flpContent.Controls.Add(this.panel1);
             flpContent.Dock = System.Windows.Forms.DockStyle.Fill;
             flpContent.Location = new System.Drawing.Point(400, 0);
             flpContent.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -236,6 +241,27 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "label1";
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnAddNewEvent);
+            this.panel1.Location = new System.Drawing.Point(3, 3);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(212, 45);
+            this.panel1.TabIndex = 0;
+            // 
+            // btnAddNewEvent
+            // 
+            this.btnAddNewEvent.BackColor = System.Drawing.Color.White;
+            this.btnAddNewEvent.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnAddNewEvent.FlatAppearance.BorderSize = 0;
+            this.btnAddNewEvent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddNewEvent.Location = new System.Drawing.Point(0, 0);
+            this.btnAddNewEvent.Name = "btnAddNewEvent";
+            this.btnAddNewEvent.Size = new System.Drawing.Size(212, 45);
+            this.btnAddNewEvent.TabIndex = 3;
+            this.btnAddNewEvent.Text = "Add New Event";
+            this.btnAddNewEvent.UseVisualStyleBackColor = false;
+            // 
             // EventContainer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -249,12 +275,14 @@
             this.Size = new System.Drawing.Size(1884, 905);
             this.Load += new System.EventHandler(this.ListEvent_Load);
             this.pnContentNewest.ResumeLayout(false);
+            flpContent.ResumeLayout(false);
             this.panelFilter.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -276,6 +304,8 @@
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.GroupBox groupBox5;
-      static  public System.Windows.Forms.FlowLayoutPanel flpContent;
+        private System.Windows.Forms.Panel panel1;
+    static   public System.Windows.Forms.FlowLayoutPanel flpContent;
+        private System.Windows.Forms.Button btnAddNewEvent;
     }
 }

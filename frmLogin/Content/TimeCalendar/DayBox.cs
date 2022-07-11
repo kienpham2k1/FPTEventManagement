@@ -30,7 +30,7 @@ namespace FptEventWinApp
         }
         private void BtnDay_MouseHover(object sender, EventArgs e)
         {
-                        if (events.Count() > 0)
+            if (events.Count() > 0)
             {
                 flowLayoutPanel.AutoScroll = true;
                 foreach (Event item in events)
@@ -95,6 +95,14 @@ namespace FptEventWinApp
                     label5.Visible = true;
                     label6.Visible = true;
                 }
+            }
+        }
+
+        private void BtnDay_Click(object sender, EventArgs e)
+        {
+            if (events.Count() > 0)
+            {
+                frmHomePage.loadEvent(events);
             }
         }
     }
