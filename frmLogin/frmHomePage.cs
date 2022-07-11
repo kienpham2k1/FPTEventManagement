@@ -8,22 +8,25 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using FptEventWinApp;
+using BussinessLayer.Models;
 
 //namespace frmHomePage
 //{
-    public partial class frmHomePage : Form
+public partial class frmHomePage : Form
+{
+    //static Panel pnNavigation = this.ac
+    public static User userLogin { get; set; }
+    public frmHomePage()
     {
-        //static Panel pnNavigation = this.ac
-        public frmHomePage()
-        {
-            InitializeComponent();
+        InitializeComponent();
         addNavBar();
         //btnExit.Hide();
         loadEvent();
+        //userLogin = null;
     }
-        public static void addNavBar()
+    public static void addNavBar()
     {
-        pnNavigation.Controls.Add(new NavigationGuest());
+        pnNavigation.Controls.Add(new NavigationGuest { userLogin = userLogin });
     }
     private static UserControl activeForm = null;
     public static void openContainer(UserControl container)
@@ -40,7 +43,7 @@ using FptEventWinApp;
     }
 
     //Load List of all event
-        public static void loadEvent()
+    public static void loadEvent()
     {
         openContainer(new EventContainer());
     }
@@ -49,9 +52,9 @@ using FptEventWinApp;
         openContainer(new TimeScheduleContainer());
     }
     private void btnExit_Click(object sender, EventArgs e)
-        {
-            Close();
+    {
+        Close();
 
-        }
+    }
 }
 //}

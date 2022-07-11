@@ -8,11 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Accessibility;
+using BussinessLayer.Models;
 
 namespace FptEventWinApp
 {
     public partial class NavigationGuest : UserControl
     {
+        public User userLogin { get; set; }
         public NavigationGuest()
         {
             InitializeComponent();
