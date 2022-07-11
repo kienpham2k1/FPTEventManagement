@@ -60,21 +60,25 @@ namespace FptEventWinApp
                 if (d.DayOfWeek >= DayOfWeek.Sunday && d.DayOfWeek <= DayOfWeek.Saturday)
                 {
 
-                    DayBox dayBox = new DayBox();
+                    DayBox dayBox = new DayBox
+                    {
+                        time = d,
+                        small = true,
+                    };
                     dayBox.Width = 54;
                     dayBox.Height = 54;
-                    dayBox.btnDay.Dock = DockStyle.Fill;    
-                    //dayBox.btnDay.Text = d.Day.ToString();
+                    dayBox.btnDay.Dock = DockStyle.Fill;
                     if (d.Month > firstInMonth.Month || d.Month < firstInMonth.Month)
                     {
                         dayBox.btnDay.ForeColor = Color.DarkGray;
                     }
-                    if (d.Date == DateTime.Now.Date) {
+                    if (d.Date == DateTime.Now.Date)
+                    {
                         dayBox.btnDay.BackColor = Color.CornflowerBlue;
                     }
                     flpDays.Controls.Add(dayBox);
                     dayBox.btnLocationCalen.X = dayBox.Location.X + 1;
-                    dayBox.btnLocationCalen.Y = dayBox.Location.Y+ 1;
+                    dayBox.btnLocationCalen.Y = dayBox.Location.Y + 1;
                 }
             }
 

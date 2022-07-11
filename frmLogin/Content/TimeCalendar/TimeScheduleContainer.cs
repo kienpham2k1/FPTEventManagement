@@ -56,7 +56,8 @@ namespace FptEventWinApp
         private void BtnViewByWeek_Click(object sender, EventArgs e)
         {
             flpDisplayDays.Controls.Clear();
-            flpDisplayDays.Controls.Add(new FptEventWinApp.Content.TimeCalendar.Week());
+            Week week = new Week(); 
+            flpDisplayDays.Controls.Add(week);
         }
     }
 }

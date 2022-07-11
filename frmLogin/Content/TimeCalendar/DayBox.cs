@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using FptEventWinApp.Content.TimeCalendar;
 using BussinessLayer.Models;
 using DataAccess.Repository;
 
@@ -20,23 +19,24 @@ namespace FptEventWinApp
         public Point btnLocationCalen;
         public DateTime time { get; set; }
         public Event evt { get; set; }
+        public bool small { get; set; }
         IEnumerable<Event> events = null;
         IEventRepository eventRepo = new EventRepository();
         public DayBox()
         {
             InitializeComponent();
             btnLocationTSC = new Point();
-           
+
         }
         private void BtnDay_MouseHover(object sender, EventArgs e)
         {
-            //events = eventRepo.GetEvents(time);
-            if (events.Count() >0)
+                        if (events.Count() > 0)
             {
                 flowLayoutPanel.AutoScroll = true;
-                flowLayoutPanel.Size = new System.Drawing.Size(400, 410);
                 foreach (Event item in events)
                 {
+                    flowLayoutPanel.Size = new System.Drawing.Size(310, events.Count() * 100 + events.Count() * 7);
+                    //flowLayoutPanel.MaximumSize = new Size(310, 110);
                     EventFastView eventFastView = new EventFastView
                     {
                         @event = item,
@@ -87,6 +87,14 @@ namespace FptEventWinApp
             if (events.Count() > 0)
             {
                 label1.Visible = true;
+                label2.Visible = true;
+                label3.Visible = true;
+                if (small)
+                {
+                    label4.Visible = true;
+                    label5.Visible = true;
+                    label6.Visible = true;
+                }
             }
         }
     }

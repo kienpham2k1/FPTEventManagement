@@ -1,4 +1,4 @@
-﻿namespace FptEventWinApp.Content.TimeCalendar
+﻿namespace FptEventWinApp
 {
     partial class Week
     {
@@ -145,7 +145,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(185, 67);
             this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.label1.Text = "Time In Day";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // flpContainTimes

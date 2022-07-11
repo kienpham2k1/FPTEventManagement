@@ -25,20 +25,19 @@ namespace FptEventWinApp
         private void DetailEvent_Load(object sender, EventArgs e)
         {
             label1.Text = @event.Name;
-            label2.Text = @event.Begin.ToString("MM/dd/yyyy");
-            label3.Text = @event.End.ToString("MM/dd/yyyy");
+            label2.Text = @event.Begin.ToString("MM/dd/yyyy") + "  -   " + @event.End.ToString("MM/dd/yyyy");
             richTextBox1.Text = @event.Content;
             buttonChange();
 
         }
-        private void buttonChange() 
+        private void buttonChange()
         {
             if (followRepo.GetFollow(1, @event.Id) != null)
             {
                 button2.BackColor = Color.Blue;
                 button2.ForeColor = Color.White;
             }
-            else 
+            else
             {
                 button2.BackColor = SystemColors.ControlLightLight;
                 button2.ForeColor = SystemColors.ControlText;
