@@ -3,14 +3,14 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace BussinessLayer.Models
+namespace Bussiness_layer
 {
     public partial class Event
     {
         public Event()
         {
             Comments = new HashSet<Comment>();
-            Images = new HashSet<Image>();
+            Images = new HashSet<Images>();
             Videos = new HashSet<Video>();
         }
 
@@ -27,9 +27,8 @@ namespace BussinessLayer.Models
         public int IdCategory { get; set; }
         public string Content { get; set; }
 
-        public virtual Category IdCategoryNavigation { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
-        public virtual ICollection<Image> Images { get; set; }
+        public virtual ICollection<Images> Images { get; set; }
         public virtual ICollection<Video> Videos { get; set; }
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace BussinessLayer.Models
+namespace Bussiness_layer
 {
     public partial class Video
     {

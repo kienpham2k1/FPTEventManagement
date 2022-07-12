@@ -8,6 +8,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation layer", "Presentation layer", "{EE900327-5C3D-4164-8F39-0A353976817B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business layer", "Business layer", "{51F47F8B-2039-4E79-B27C-BBF610D17CEB}"
+	ProjectSection(SolutionItems) = preProject
+		Bussiness layer\Video.cs = Bussiness layer\Video.cs
+	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data layer", "Data layer", "{F01DC56E-396B-40A3-8D47-E85429FD5A52}"
 EndProject
@@ -16,9 +19,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BussinessLayer", "Bussiness layer\BussinessLayer.csproj", "{4A284260-6DCD-4197-82BE-CE4F865E99F9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BussinessLayer", "Bussiness layer\BussinessLayer.csproj", "{4A284260-6DCD-4197-82BE-CE4F865E99F9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{D23624CE-E4AB-4EA3-A9BF-5D87B780A06C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{D23624CE-E4AB-4EA3-A9BF-5D87B780A06C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

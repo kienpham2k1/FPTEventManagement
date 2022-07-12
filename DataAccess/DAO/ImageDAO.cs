@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BussinessLayer.Models;
+using Bussiness_layer;
 
 namespace DataAccess
 {
@@ -26,9 +26,9 @@ namespace DataAccess
                 }
             }
         }
-        public IEnumerable<Image> GetImages(int idEvent)
+        public IEnumerable<Images> GetImages(int idEvent)
         {
-            IEnumerable<Image> images = null;
+            IEnumerable<Images> images = null;
             try
             {
                 var context = new FEventContext();
@@ -40,9 +40,16 @@ namespace DataAccess
             }
             return images;
         }
-        public Image GetImage(int idEvent)
+        public void SaveImage(Images img)
         {
-            Image image = null;
+            using var db = new FEventContext();
+            db.Images.Add(img);
+            db.SaveChanges();
+            int id = img.Id;
+        }
+        public Images GetImage(int idEvent)
+        {
+            Images image = null;
             try
             {
                 var images = GetImages(idEvent);
@@ -54,6 +61,19 @@ namespace DataAccess
                 throw new Exception(ex.Message);
             }
             return image;
+        }
+        public void Update(Images img)
+        {
+            try
+            {
+                Images i = GetImage(img.IdEvent);
+                if(i != null)
+                {
+                    using var db = new FEventContext();
+                    db.Images.Update(img);
+                    db.SaveChanges();
+                }
+            }catch (Exception ex) { }
         }
     }
 }

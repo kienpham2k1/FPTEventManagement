@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 #nullable disable
 
-namespace BussinessLayer.Models
+namespace Bussiness_layer
 {
-    public partial class Image
+    public partial class Images
     {
         public int Id { get; set; }
         public int IdEvent { get; set; }

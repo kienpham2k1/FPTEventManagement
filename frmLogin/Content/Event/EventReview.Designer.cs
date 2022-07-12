@@ -70,7 +70,7 @@
             this.linkLbNameEvt.MaximumSize = new System.Drawing.Size(414, 0);
             this.linkLbNameEvt.Name = "linkLbNameEvt";
             this.linkLbNameEvt.Padding = new System.Windows.Forms.Padding(3);
-            this.linkLbNameEvt.Size = new System.Drawing.Size(121, 27);
+            this.linkLbNameEvt.Size = new System.Drawing.Size(149, 34);
             this.linkLbNameEvt.TabIndex = 2;
             this.linkLbNameEvt.TabStop = true;
             this.linkLbNameEvt.Text = "linkLbNameEvt";
@@ -92,7 +92,7 @@
             this.lbEndAt.AutoSize = true;
             this.lbEndAt.Location = new System.Drawing.Point(5, 100);
             this.lbEndAt.Name = "lbEndAt";
-            this.lbEndAt.Size = new System.Drawing.Size(49, 15);
+            this.lbEndAt.Size = new System.Drawing.Size(62, 20);
             this.lbEndAt.TabIndex = 3;
             this.lbEndAt.Text = "lbEndAt";
             // 
@@ -101,7 +101,7 @@
             this.lbStartAt.AutoSize = true;
             this.lbStartAt.Location = new System.Drawing.Point(5, 12);
             this.lbStartAt.Name = "lbStartAt";
-            this.lbStartAt.Size = new System.Drawing.Size(53, 15);
+            this.lbStartAt.Size = new System.Drawing.Size(68, 20);
             this.lbStartAt.TabIndex = 3;
             this.lbStartAt.Text = "lbStartAt";
             // 
@@ -122,10 +122,10 @@
             // 
             this.lbbyUser.AutoSize = true;
             this.lbbyUser.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbbyUser.Location = new System.Drawing.Point(0, 48);
+            this.lbbyUser.Location = new System.Drawing.Point(0, 60);
             this.lbbyUser.Name = "lbbyUser";
             this.lbbyUser.Padding = new System.Windows.Forms.Padding(3);
-            this.lbbyUser.Size = new System.Drawing.Size(49, 21);
+            this.lbbyUser.Size = new System.Drawing.Size(60, 26);
             this.lbbyUser.TabIndex = 4;
             this.lbbyUser.Text = "byUser";
             // 
@@ -134,11 +134,11 @@
             this.lbSmallDescription.AllowDrop = true;
             this.lbSmallDescription.AutoSize = true;
             this.lbSmallDescription.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lbSmallDescription.Location = new System.Drawing.Point(0, 27);
+            this.lbSmallDescription.Location = new System.Drawing.Point(0, 34);
             this.lbSmallDescription.MaximumSize = new System.Drawing.Size(414, 0);
             this.lbSmallDescription.Name = "lbSmallDescription";
             this.lbSmallDescription.Padding = new System.Windows.Forms.Padding(3);
-            this.lbSmallDescription.Size = new System.Drawing.Size(105, 21);
+            this.lbSmallDescription.Size = new System.Drawing.Size(132, 26);
             this.lbSmallDescription.TabIndex = 3;
             this.lbSmallDescription.Text = "Small Description";
             // 

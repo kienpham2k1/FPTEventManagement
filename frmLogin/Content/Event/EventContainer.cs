@@ -8,7 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataAccess.Repository;
-using BussinessLayer.Models;
+using Bussiness_layer;
+
 namespace FptEventWinApp
 {
     public partial class EventContainer : UserControl
