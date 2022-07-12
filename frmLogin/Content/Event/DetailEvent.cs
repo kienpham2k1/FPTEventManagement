@@ -23,7 +23,7 @@ namespace FptEventWinApp
         public User userLogin { get; set; }
         public int back { get; set; }
 
-        private int count = 0;
+        private int count = -1;
         public DetailEvent()
         {
             InitializeComponent();
@@ -43,12 +43,15 @@ namespace FptEventWinApp
 
             this.groupBox1.Location = new Point(57, this.label3.Location.Y + this.label3.Size.Height + 20);
             this.flowLayoutPanel2.Location = new Point(105, this.label3.Location.Y + this.label3.Size.Height + 30 + this.groupBox1.Height);
-            AddCommet addCmt = new AddCommet
+            if (userLogin != null)
             {
-                idEvent = @event.Id,
-                userLogin = userLogin
-            };
-            flowLayoutPanel2.Controls.Add(addCmt);
+                AddCommet addCmt = new AddCommet
+                {
+                    idEvent = @event.Id,
+                    userLogin = userLogin
+                };
+                flowLayoutPanel2.Controls.Add(addCmt);
+            }
             var listImage = imageRepo.GetImages(@event.Id);
             if (listImage != null)
             {
@@ -79,30 +82,44 @@ namespace FptEventWinApp
         }
         private void buttonFollowChange()
         {
-            if (followRepo.GetFollow(1, @event.Id) != null)
+            if (userLogin != null)
             {
-                this.button2.Image = global::FptEventWinApp.Properties.Resources.following_free_icon_font;
-            }
-            else
-            {
-                this.button2.Image = global::FptEventWinApp.Properties.Resources.following__2_;
+                if (followRepo.GetFollow(userLogin.Id, @event.Id) != null)
+                {
+                    this.button2.Image = global::FptEventWinApp.Properties.Resources.following_free_icon_font;
+                }
+                else
+                {
+                    this.button2.Image = global::FptEventWinApp.Properties.Resources.following__2_;
+                }
             }
         }
         private void buttonLikeChange()
         {
-            if (likeRepo.GetLike(1, @event.Id) != null)
+            if (userLogin != null)
             {
-                this.button1.Image = global::FptEventWinApp.Properties.Resources.heart_free_icon_font;
-            }
-            else
-            {
-                this.button1.Image = global::FptEventWinApp.Properties.Resources.heart__1_;
+                if (likeRepo.GetLike(userLogin.Id, @event.Id) != null)
+                {
+                    this.button1.Image = global::FptEventWinApp.Properties.Resources.heart_free_icon_font;
+                }
+                else
+                {
+                    this.button1.Image = global::FptEventWinApp.Properties.Resources.heart__1_;
+                }
             }
         }
         private void Button1_Click(object sender, EventArgs e)
         {
-            eventRepo.Like(1, @event.Id);
-            buttonLikeChange();
+            if (userLogin == null)
+            {
+                Logintest frmLogin = new Logintest();
+                frmLogin.ShowDialog();
+            }
+            else
+            {
+                eventRepo.Like(userLogin.Id, @event.Id);
+                buttonLikeChange();
+            }
         }
 
         private void RadioButton2_CheckedChanged(object sender, EventArgs e)
@@ -117,15 +134,24 @@ namespace FptEventWinApp
 
         private void Button5_Click(object sender, EventArgs e)
         {
-            pictureBox1.Image = imageList1.Images[count];
             count++;
             if (count >= imageList1.Images.Count) count = 0;
+            pictureBox1.Image = imageList1.Images[count];
+
         }
 
         private void Button2_Click_1(object sender, EventArgs e)
         {
-            eventRepo.Follow(1, @event.Id);
-            buttonFollowChange();
+            if (userLogin == null)
+            {
+                Logintest frmLogin = new Logintest();
+                frmLogin.ShowDialog();
+            }
+            else
+            {
+                eventRepo.Follow(userLogin.Id, @event.Id);
+                buttonFollowChange();
+            }
         }
 
         private void Button3_Click(object sender, EventArgs e)
@@ -138,6 +164,13 @@ namespace FptEventWinApp
             {
                 frmHomePage.loadCalendar();
             }
+        }
+
+        private void Button4_Click(object sender, EventArgs e)
+        {
+            if (count <= 0) count = imageList1.Images.Count;
+            count--;
+            pictureBox1.Image = imageList1.Images[count];
         }
     }
 }

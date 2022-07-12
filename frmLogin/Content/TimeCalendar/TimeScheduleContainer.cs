@@ -61,5 +61,23 @@ namespace FptEventWinApp
             Week week = new Week(); 
             flpDisplayDays.Controls.Add(week);
         }
+
+        private void TimeScheduleContainer_Load(object sender, EventArgs e)
+        {
+            if (userLogin == null || userLogin.RoleId != 1)
+            {
+                btnAddNewEvent.Visible = false;
+            }
+        }
+
+        private void RadioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RadioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

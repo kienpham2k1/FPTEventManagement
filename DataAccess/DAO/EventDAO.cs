@@ -66,9 +66,48 @@ namespace DataAccess
             {
                 using (var context = new FEventContext())
                 {
-                    //var listAll = GetEvents();
                     events = from item in context.Events.ToList() where (item.Begin >= startDay && item.End < endDay) orderby item.Begin ascending select item;
                 }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return events;
+        }
+        public IEnumerable<Event> GetEvents(int idUserfollow)
+        {
+            IEnumerable<Event> events = null;
+            try
+            {
+                var context = new FEventContext();
+                var listEvent = context.Events;
+                var listFollow = context.Follows;
+                if (listFollow == null || listEvent == null)
+                {
+                    events = null;
+                }
+                else
+                {
+                    events = listEvent.Join(listFollow,
+                        evt => evt.Id,
+                        follow => follow.IdEvent,
+                        (evt, follow) => evt);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return events;
+        }
+        public IEnumerable<Event> GetEventsUserCreate(int idUserCreate)
+        {
+            IEnumerable<Event> events = null;
+            try
+            {
+                var context = new FEventContext();
+                events = context.Events.Where(x => x.IdUser == idUserCreate);
             }
             catch (Exception ex)
             {

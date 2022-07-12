@@ -26,16 +26,24 @@ namespace FptEventWinApp
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            BussinessLayer.Models.Comment cmt = new BussinessLayer.Models.Comment
+            if (userLogin == null)
             {
-                IdReplyComment = null,
-                IdEvent = idEvent,
-                IdUser = userLogin.Id,
-                Comment1 = textBox1.Text,
-                Time = DateTime.Now,
-                Status = true
-            };
-            cmtRepo.Comment(cmt);
+                Logintest frmLogin = new Logintest();
+                frmLogin.ShowDialog();
+            }
+            else
+            {
+                BussinessLayer.Models.Comment cmt = new BussinessLayer.Models.Comment
+                {
+                    IdReplyComment = null,
+                    IdEvent = idEvent,
+                    IdUser = userLogin.Id,
+                    Comment1 = textBox1.Text,
+                    Time = DateTime.Now,
+                    Status = true
+                };
+                cmtRepo.Comment(cmt);
+            }
         }
     }
 }
