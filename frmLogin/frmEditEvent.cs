@@ -86,7 +86,7 @@ namespace FptEventWinApp
                     return false;
                 }if((DateTime.Compare(dateTimePicker3.Value, en.End) <= 0 && DateTime.Compare(dateTimePicker3.Value, en.Begin) >= 0) == true)
                 {
-                    MessageBox.Show(" date and time coincide with the previous created event", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(" date1 and time coincide with the previous created event", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     dateTimePicker3.Focus();
                     return false;
                 }
