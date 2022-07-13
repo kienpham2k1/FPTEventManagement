@@ -16,5 +16,16 @@ namespace DataAccess.Repository
         public IEnumerable<Event> GetEvents(int idUserfollow) => EventDAO.Instance.GetEvents(idUserfollow);
         public IEnumerable<Event> GetEventsUserCreate(int idUserCreate) => EventDAO.Instance.GetEventsUserCreate(idUserCreate);
         public IEnumerable<Event> GetEvents(string nameEvent) => EventDAO.Instance.GetEvents(nameEvent);
+        public Event GetEventById(int id) => EventDAO.Instance.GetEventById(id);
+        
+
+        public IEnumerable<Event> GetEvents() => EventDAO.Instance.GetEvents();
+
+        public int GetNewIdEventCreate() => EventDAO.Instance.GetNewIdEventCreate();
+
+        public void SaveEvent(Event e) => EventDAO.Instance.SaveEvent(e);
+
+        public void Update(Event e) => EventDAO.Instance.Update(e);
+        
     }
 }

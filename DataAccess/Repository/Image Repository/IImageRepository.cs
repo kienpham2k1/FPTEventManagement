@@ -3,14 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BussinessLayer.Models;
+using Bussiness_layer;
+
 
 namespace DataAccess.Repository
 {
     public interface IImageRepository
     {
-        IEnumerable<Image> GetImages(int idEvent);
-        Image GetImage(int idEvent);
+        IEnumerable<Images> GetImages(int idEvent);
+        Images GetImage(int idEvent);
 
+        void SaveImage(Images image);
+        void Update(Images image);
     }
 }
