@@ -230,8 +230,7 @@ namespace FptEventWinApp
                         Password = txtpassword.Text.ToString(),
                         Phone = txtphone.Text.ToString(),
                         Gender = check,
-                        Status = true,
-                        RoleId = 1,
+                                        RoleId = 1,
                     };
                     userRepository.SaveUser(user);
                     //MessageBox.Show(id.ToString());

@@ -22,9 +22,7 @@ namespace BussinessLayer.Models
         public DateTime Begin { get; set; }
         public DateTime End { get; set; }
         public int? Like { get; set; }
-        public int? Vote { get; set; }
         public int? Follow { get; set; }
-        public bool Status { get; set; }
         public string Content { get; set; }
 
         public virtual ICollection<Comment> Comments { get; set; }

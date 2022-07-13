@@ -125,9 +125,9 @@ namespace FptEventWinApp
                         IdUser = frmHomePage.userLogin.Id,
                         Create = @event.Create,
                         Begin = dateTimePicker2.Value,
+                        Like = @event.Like,
+                        Follow = @event.Follow,
                         End = dateTimePicker3.Value,
-                        Status = true,
-
                         Content = richTextBox1.Text,
                     };
                     eventRepository.Update(ev);

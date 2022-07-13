@@ -39,7 +39,7 @@ namespace FptEventWinApp
                     IdUser = frmHomePage.userLogin.Id,
                     Comment1 = textBox1.Text,
                     Time = DateTime.Now,
-                    Status = true
+
                 };
                 cmtRepo.Comment(cmt);
             }

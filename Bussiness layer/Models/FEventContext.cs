@@ -53,7 +53,6 @@ namespace BussinessLayer.Models
 
                 entity.Property(e => e.IdUser).HasColumnName("id_user");
 
-                entity.Property(e => e.Status).HasColumnName("status");
 
                 entity.Property(e => e.Time)
                     .HasPrecision(0)
@@ -106,9 +105,6 @@ namespace BussinessLayer.Models
                     .HasMaxLength(50)
                     .HasColumnName("name");
 
-                entity.Property(e => e.Status).HasColumnName("status");
-
-                entity.Property(e => e.Vote).HasColumnName("vote");
             });
 
             modelBuilder.Entity<Follow>(entity =>
@@ -224,7 +220,6 @@ namespace BussinessLayer.Models
 
                 entity.Property(e => e.RoleId).HasColumnName("role_id");
 
-                entity.Property(e => e.Status).HasColumnName("status");
 
                 entity.HasOne(d => d.Role)
                     .WithMany(p => p.Users)

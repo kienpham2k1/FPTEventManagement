@@ -135,6 +135,7 @@ namespace DataAccess
         public Follow Follow(int userId, int eventId)
         {
             Follow follow = null;
+            Event _evet = null; 
             try
             {
                 var context = new FEventContext();
@@ -146,14 +147,40 @@ namespace DataAccess
                         IdEvent = eventId,
                     };
                     context.Follows.Add(follow);
-                    Event _evet = GetEvent(eventId);
-                    context.Events.Update(_evet);
+                    _evet = GetEvent(eventId);
+                    Event __event = new Event
+                    {
+                        Id = _evet.IdUser,
+                        Name = _evet.Name,
+                        IdUser = _evet.IdUser,
+                        Create = _evet.Create,
+                        Begin = _evet.Begin,
+                        End = _evet.End,
+                        Like = _evet.Like,
+                        Follow = _evet.Follow + 1,
+                        Content = _evet.Content,
+                    };
+                    context.Events.Update(__event);
                     context.SaveChanges();
                 }
                 else
                 {
                     var _follow = context.Follows.SingleOrDefault(x => x.IdUser == userId && x.IdEvent == eventId);
                     context.Follows.Remove(_follow);
+                    _evet = GetEvent(eventId);
+                    Event __event = new Event
+                    {
+                        Id = _evet.IdUser,
+                        Name = _evet.Name,
+                        IdUser = _evet.IdUser,
+                        Create = _evet.Create,
+                        Begin = _evet.Begin,
+                        End = _evet.End,
+                        Like = _evet.Like,
+                        Follow = _evet.Follow - 1,
+                        Content = _evet.Content,
+                    };
+                    context.Events.Update(__event);
                     context.SaveChanges();
                 }
             }
@@ -178,13 +205,39 @@ namespace DataAccess
                     };
                     context.Likes.Add(like);
                     Event _evet = GetEvent(eventId);
-                    context.Events.Update(_evet);
+                    Event __event = new Event
+                    {
+                        Id = _evet.IdUser,
+                        Name = _evet.Name,
+                        IdUser = _evet.IdUser,
+                        Create = _evet.Create,
+                        Begin = _evet.Begin,
+                        End = _evet.End,
+                        Like = _evet.Like + 1,
+                        Follow = _evet.Follow,
+                        Content = _evet.Content,
+                    };
+                    context.Events.Update(__event);
                     context.SaveChanges();
                 }
                 else
                 {
                     var _like = context.Likes.SingleOrDefault(x => x.IdUser == userId && x.IdEvent == eventId);
                     context.Likes.Remove(_like);
+                    Event _evet = GetEvent(eventId);
+                    Event __event = new Event
+                    {
+                        Id = _evet.IdUser,
+                        Name = _evet.Name,
+                        IdUser = _evet.IdUser,
+                        Create = _evet.Create,
+                        Begin = _evet.Begin,
+                        End = _evet.End,
+                        Like = _evet.Like - 1,
+                        Follow = _evet.Follow,
+                        Content = _evet.Content,
+                    };
+                    context.Events.Update(__event);
                     context.SaveChanges();
                 }
             }
@@ -264,9 +317,7 @@ namespace DataAccess
                     Begin = @event.Begin,
                     End = @event.End,
                     Like = @event.Like + 1,
-                    Vote = @event.Vote,
                     Follow = @event.Follow,
-                    Status = false,
                     Content = @event.Content,
                 };
                 context.Update(_event);

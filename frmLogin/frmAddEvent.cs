@@ -124,7 +124,8 @@ namespace FptEventWinApp
                         Create = DateTime.Now,
                         Begin = dateTimePicker2.Value,
                         End = dateTimePicker3.Value,
-                        Status = true,
+                        Like = 0,
+                        Follow = 0,
 
                         Content = richTextBox1.Text,
                     };

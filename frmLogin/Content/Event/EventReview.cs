@@ -44,7 +44,7 @@ namespace FptEventWinApp
                 if (frmHomePage.userLogin.RoleId == 1 && frmHomePage.userLogin.Id == @event.IdUser)
                 {
                     button1.Visible = true;
-                    button2.Visible = true;
+                
                 }
             }
             lbStartAt.Text = @event.Begin.ToString("HH:mm \ndd/MM/yyyy");
