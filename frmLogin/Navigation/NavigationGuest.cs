@@ -54,7 +54,7 @@ namespace FptEventWinApp
 
         private void NavigationGuest_Load(object sender, EventArgs e)
         {
-            if (userLogin == null)
+            if (frmHomePage.userLogin == null)
             {
                 btnLogin.Click += new System.EventHandler(BtnLogin_Click);
                 btnViewNotify.Visible = false;
