@@ -72,14 +72,14 @@ namespace FptEventWinApp
                     checkdate.Add(ee);
                 }
             }
-            foreach (Event ee in checkdate)
-            {
-                if ((DateTime.Compare(DateTime.Parse(dateTimePicker2.Value.ToString("MM/dd/yyyy")), DateTime.Parse(ee.End.ToString("MM/dd/yyyy"))) == 0 && DateTime.Compare(DateTime.Parse(dateTimePicker2.Value.ToString("MM/dd/yyyy")), DateTime.Parse(ee.Begin.ToString("MM/dd/yyyy"))) == 0) || (DateTime.Compare(DateTime.Parse(dateTimePicker3.Value.ToString("MM/dd/yyyy")), DateTime.Parse(ee.End.ToString("MM/dd/yyyy"))) == 0 && DateTime.Compare(DateTime.Parse(dateTimePicker3.Value.ToString("MM/dd/yyyy")), DateTime.Parse(ee.Begin.ToString("MM/dd/yyyy"))) == 0))
-                {
-                    checktime.Add(ee);
-                }
+            //foreach (Event ee in checkdate)
+            //{
+            //    if ((DateTime.Compare(DateTime.Parse(dateTimePicker2.Value.ToString("MM/dd/yyyy")), DateTime.Parse(ee.End.ToString("MM/dd/yyyy"))) == 0 && DateTime.Compare(DateTime.Parse(dateTimePicker2.Value.ToString("MM/dd/yyyy")), DateTime.Parse(ee.Begin.ToString("MM/dd/yyyy"))) == 0) || (DateTime.Compare(DateTime.Parse(dateTimePicker3.Value.ToString("MM/dd/yyyy")), DateTime.Parse(ee.End.ToString("MM/dd/yyyy"))) == 0 && DateTime.Compare(DateTime.Parse(dateTimePicker3.Value.ToString("MM/dd/yyyy")), DateTime.Parse(ee.Begin.ToString("MM/dd/yyyy"))) == 0))
+            //    {
+            //        checktime.Add(ee);
+            //    }
 
-            }
+            //}
             foreach (Event en in checktime)
             {
                 if ((DateTime.Compare(dateTimePicker2.Value, en.End) <= 0 && DateTime.Compare(dateTimePicker2.Value, en.Begin) >= 0) == true)
