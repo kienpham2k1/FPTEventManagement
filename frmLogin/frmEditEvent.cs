@@ -53,6 +53,45 @@ namespace FptEventWinApp
                 richTextBox1.Focus();
                 return false;
             }
+            
+            return true;
+        }
+        public bool checkDateTime(Event e)
+        {
+            List<Event> evn = (List<Event>)eventRepository.GetEvents();
+            List<Event> checkdate = new List<Event>();
+            List<Event> checktime = new List<Event>();
+
+            foreach (Event ee in evn)
+            {
+                if(ee.Id != e.Id)
+                {
+                    checkdate.Add(ee);
+                }
+            }
+            foreach (Event ee in checkdate)
+            {
+                if ((DateTime.Compare(DateTime.Parse(dateTimePicker2.Value.ToString("MM/dd/yyyy")), DateTime.Parse(ee.End.ToString("MM/dd/yyyy"))) == 0 && DateTime.Compare(DateTime.Parse(dateTimePicker2.Value.ToString("MM/dd/yyyy")), DateTime.Parse(ee.Begin.ToString("MM/dd/yyyy"))) == 0) || (DateTime.Compare(DateTime.Parse(dateTimePicker3.Value.ToString("MM/dd/yyyy")), DateTime.Parse(ee.End.ToString("MM/dd/yyyy"))) == 0 && DateTime.Compare(DateTime.Parse(dateTimePicker3.Value.ToString("MM/dd/yyyy")), DateTime.Parse(ee.Begin.ToString("MM/dd/yyyy"))) == 0))
+                {
+                    checktime.Add(ee);
+                }
+                
+            }
+            foreach (Event en in checktime)
+            {
+                if ((DateTime.Compare(dateTimePicker2.Value, en.End) <= 0 && DateTime.Compare(dateTimePicker2.Value, en.Begin) >= 0) ==true )
+                {
+                    MessageBox.Show(" date and time coincide with the previous created event", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    dateTimePicker2.Focus();
+                    return false;
+                }if((DateTime.Compare(dateTimePicker3.Value, en.End) <= 0 && DateTime.Compare(dateTimePicker3.Value, en.Begin) >= 0) == true)
+                {
+                    MessageBox.Show(" date and time coincide with the previous created event", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    dateTimePicker3.Focus();
+                    return false;
+                }
+                
+            }
             return true;
         }
 
@@ -72,7 +111,7 @@ namespace FptEventWinApp
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (getCheck())
+            if (getCheck() && checkDateTime(eventRepository.GetEventById(8)))
             {
                 try
                 {

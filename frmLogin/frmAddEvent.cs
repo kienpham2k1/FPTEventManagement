@@ -16,7 +16,8 @@ namespace FptEventWinApp
     {
         IEventRepository eventRepository = new EventRepository();
         IImageRepository imageRepository = new ImageRepository();
-        DateTime now =DateTime.Parse( DateTime.Now.ToString("MM/dd/yyyy"));
+        DateTime now = DateTime.Parse(DateTime.Now.ToString("MM/dd/yyyy"));
+
         public frmAddEvent()
         {
             InitializeComponent();
@@ -24,16 +25,19 @@ namespace FptEventWinApp
 
         public bool getCheck()
         {
-            if (String.IsNullOrEmpty(textBox1.Text)){
+            if (String.IsNullOrEmpty(textBox1.Text))
+            {
                 MessageBox.Show("Name is empty", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 textBox1.Focus();
                 return false;
-            }if(DateTime.Compare(dateTimePicker1.Value,now) < 0)
+            }
+            if (DateTime.Compare(dateTimePicker1.Value, now) < 0)
             {
                 MessageBox.Show("Date Create Less than to day", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 dateTimePicker1.Focus();
                 return false;
-            }if(DateTime.Compare(dateTimePicker1.Value,dateTimePicker2.Value) > 0)
+            }
+            if (DateTime.Compare(dateTimePicker1.Value, dateTimePicker2.Value) > 0)
             {
                 MessageBox.Show("Date Begin less than Date Create", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 dateTimePicker2.Focus();
@@ -44,16 +48,43 @@ namespace FptEventWinApp
                 MessageBox.Show("Date End less than Date Begin", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 dateTimePicker3.Focus();
                 return false;
-            }if(pictureBox1.Image == null)
+            }
+            if (pictureBox1.Image == null)
             {
                 MessageBox.Show("Choice image please", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 pictureBox1.Focus();
                 return false;
             }
-            if (String.IsNullOrEmpty(richTextBox1.Text)) {
+            if (String.IsNullOrEmpty(richTextBox1.Text))
+            {
                 MessageBox.Show("Content is empty", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 richTextBox1.Focus();
                 return false;
+            }
+            List<Event> evn = (List<Event>)eventRepository.GetEvents();
+            foreach (Event e in evn)
+            {
+                List<Event> checkdate = new List<Event>();
+
+                if (DateTime.Compare(DateTime.Parse(dateTimePicker2.Value.ToString("MM/dd/yyyy")), DateTime.Parse(e.End.ToString("MM/dd/yyyy"))) == 0)
+                {
+                    checkdate.Add(e);
+                }
+                foreach (Event en in checkdate)
+                {
+                    if ((DateTime.Compare(dateTimePicker2.Value, en.End) <= 0 && DateTime.Compare(dateTimePicker2.Value, en.Begin) >= 0) == true)
+                    {
+                        MessageBox.Show(" date and time coincide with the previous created event", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        dateTimePicker2.Focus();
+                        return false;
+                    }
+                    if ((DateTime.Compare(dateTimePicker3.Value, en.End) <= 0 && DateTime.Compare(dateTimePicker3.Value, en.Begin) >= 0) == true)
+                    {
+                        MessageBox.Show(" date and time coincide with the previous created event", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        dateTimePicker3.Focus();
+                        return false;
+                    }
+                }
             }
             return true;
         }
@@ -92,7 +123,7 @@ namespace FptEventWinApp
             {
                 try
                 {
-                    
+
 
                     var ev = new Event
                     {
@@ -119,15 +150,16 @@ namespace FptEventWinApp
                     imageRepository.SaveImage(pic);
 
                     MessageBox.Show("suc");
-                }catch (Exception ex)
+                }
+                catch (Exception ex)
                 {
                     MessageBox.Show("Fail");
 
                 }
             }
-           
-}
 
-}
+        }
+
+    }
 }
 
