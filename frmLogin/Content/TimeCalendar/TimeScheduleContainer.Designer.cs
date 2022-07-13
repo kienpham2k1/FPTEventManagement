@@ -29,9 +29,6 @@
         private void InitializeComponent()
         {
             this.pnMonthCalendar = new System.Windows.Forms.Panel();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.calendarCus1 = new FptEventWinApp.CalendarCus();
             this.pnControls = new System.Windows.Forms.Panel();
             pnContent = new System.Windows.Forms.Panel();
@@ -42,7 +39,6 @@
             this.btnViewByWeek = new System.Windows.Forms.Button();
             this.btnViewByMotnh = new System.Windows.Forms.Button();
             this.pnMonthCalendar.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.pnControls.SuspendLayout();
             pnContent.SuspendLayout();
             flpDisplayDays.SuspendLayout();
@@ -52,52 +48,12 @@
             // pnMonthCalendar
             // 
             this.pnMonthCalendar.BackColor = System.Drawing.SystemColors.Control;
-            this.pnMonthCalendar.Controls.Add(this.groupBox3);
             this.pnMonthCalendar.Controls.Add(this.calendarCus1);
             this.pnMonthCalendar.Dock = System.Windows.Forms.DockStyle.Left;
             this.pnMonthCalendar.Location = new System.Drawing.Point(0, 0);
             this.pnMonthCalendar.Name = "pnMonthCalendar";
             this.pnMonthCalendar.Size = new System.Drawing.Size(400, 905);
             this.pnMonthCalendar.TabIndex = 0;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.radioButton2);
-            this.groupBox3.Controls.Add(this.radioButton1);
-            this.groupBox3.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.groupBox3.Location = new System.Drawing.Point(0, 494);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(0);
-            this.groupBox3.MaximumSize = new System.Drawing.Size(400, 150);
-            this.groupBox3.MinimumSize = new System.Drawing.Size(400, 60);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(400, 109);
-            this.groupBox3.TabIndex = 6;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Filter";
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(67, 70);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(85, 23);
-            this.radioButton2.TabIndex = 3;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "My Event";
-            this.radioButton2.UseVisualStyleBackColor = true;
-            this.radioButton2.CheckedChanged += new System.EventHandler(this.RadioButton2_CheckedChanged);
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(67, 24);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(90, 23);
-            this.radioButton1.TabIndex = 2;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "My Follow";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.RadioButton1_CheckedChanged);
             // 
             // calendarCus1
             // 
@@ -212,8 +168,6 @@
             this.Size = new System.Drawing.Size(1884, 905);
             this.Load += new System.EventHandler(this.TimeScheduleContainer_Load);
             this.pnMonthCalendar.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.pnControls.ResumeLayout(false);
             pnContent.ResumeLayout(false);
             flpDisplayDays.ResumeLayout(false);
@@ -232,10 +186,7 @@
         private CalendarCus calendarCus1;
         private System.Windows.Forms.Panel pnDisplay;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.RadioButton radioButton2;
-        private System.Windows.Forms.RadioButton radioButton1;
         static public System.Windows.Forms.Panel pnContent;
-        static private System.Windows.Forms.FlowLayoutPanel flpDisplayDays;
+      static  private System.Windows.Forms.FlowLayoutPanel flpDisplayDays;
     }
 }
