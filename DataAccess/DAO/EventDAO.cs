@@ -45,7 +45,8 @@ namespace DataAccess
         public IEnumerable<Event> GetEvents(string nameEvent)
         {
             IEnumerable<Event> events;
-            try {
+            try
+            {
                 var context = new FEventContext();
                 events = context.Events.Where(x => x.Name.ToLower().Contains(nameEvent.ToLower()));
             }
@@ -192,6 +193,62 @@ namespace DataAccess
                 throw new Exception(ex.Message);
             }
             return like;
+        }
+        public int GetNewIdEventCreate()
+        {
+            using var db = new FEventContext();
+            int id = db.Events.Max(e => e.Id);
+            return id;
+        }
+        public void Update(Event e)
+        {
+            try
+            {
+                Event ev = GetEventById(e.Id);
+                if (ev != null)
+                {
+                    using var db = new FEventContext();
+                    db.Events.Update(e);
+                    db.SaveChanges();
+                }
+            }
+            catch (Exception ex) { }
+        }
+        public Event GetEventById(int id)
+        {
+            Event evt = null;
+            try
+            {
+                using var db = new FEventContext();
+                evt = db.Events.FirstOrDefault(e => e.Id == id);
+            }
+            catch (Exception ex) { }
+
+
+            return evt;
+        }
+        public void SaveEvent(Event e)
+        {
+            using var db = new FEventContext();
+            db.Events.Add(e);
+            db.SaveChanges();
+            int id = e.Id;
+        }
+        public IEnumerable<Event> GetEvents()
+        {
+            IEnumerable<Event> events = null;
+            try
+            {
+                using (var context = new FEventContext())
+                {
+                    events = context.Events.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return events;
         }
     }
 }

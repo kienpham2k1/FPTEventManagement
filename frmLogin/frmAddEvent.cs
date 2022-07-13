@@ -1,4 +1,4 @@
-﻿using Bussiness_layer;
+﻿using BussinessLayer.Models;
 using DataAccess.Repository;
 using System;
 using System.Collections.Generic;
@@ -31,13 +31,7 @@ namespace FptEventWinApp
                 textBox1.Focus();
                 return false;
             }
-            if (DateTime.Compare(dateTimePicker1.Value, now) < 0)
-            {
-                MessageBox.Show("Date Create Less than to day", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                dateTimePicker1.Focus();
-                return false;
-            }
-            if (DateTime.Compare(dateTimePicker1.Value, dateTimePicker2.Value) > 0)
+            if (DateTime.Compare(DateTime.Now, dateTimePicker2.Value) > 0)
             {
                 MessageBox.Show("Date Begin less than Date Create", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 dateTimePicker2.Focus();
@@ -105,7 +99,7 @@ namespace FptEventWinApp
                     dialog.Filter = "jpg files(.*jpg)|*.jpg| PNG files(.*png)|*.png| All Files(*.*)|*.*";
                     if (dialog.ShowDialog() == DialogResult.OK)
                     {
-                        p.Image = Image.FromFile(dialog.FileName);
+                        p.Image = System.Drawing.Image.FromFile(dialog.FileName);
                     }
                 }
 
@@ -129,20 +123,20 @@ namespace FptEventWinApp
                     {
                         Name = textBox1.Text,
                         IdUser = 8,
-                        Create = dateTimePicker1.Value,
+                        Create = DateTime.Now,
                         Begin = dateTimePicker2.Value,
                         End = dateTimePicker3.Value,
                         Status = true,
-                        IdCategory = 1,
+
                         Content = richTextBox1.Text,
                     };
                     eventRepository.SaveEvent(ev);
                     string fname = eventRepository.GetNewIdEventCreate() + ".jpg";
                     string folder = "D:\\Files";
                     string pathString = System.IO.Path.Combine(folder, fname);
-                    Image a = pictureBox1.Image;
+                    System.Drawing.Image a = pictureBox1.Image;
                     a.Save(pathString);
-                    var pic = new Images
+                    var pic = new BussinessLayer.Models.Image
                     {
                         IdEvent = eventRepository.GetNewIdEventCreate(),
                         Image1 = pathString,
@@ -159,7 +153,6 @@ namespace FptEventWinApp
             }
 
         }
-
     }
 }
 

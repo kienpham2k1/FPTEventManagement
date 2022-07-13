@@ -17,7 +17,7 @@ namespace FptEventWinApp
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmHomePage());
+            Application.Run(new frmEditEvent());
         }
     }
 }

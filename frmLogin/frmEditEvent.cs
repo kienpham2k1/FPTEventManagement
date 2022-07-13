@@ -1,4 +1,4 @@
-﻿using Bussiness_layer;
+﻿using BussinessLayer.Models;
 using DataAccess.Repository;
 using System;
 using System.Collections.Generic;
@@ -28,8 +28,8 @@ namespace FptEventWinApp
                 textBox1.Focus();
                 return false;
             }
-            
-            if (DateTime.Compare(dateTimePicker1.Value, dateTimePicker2.Value) > 0)
+
+            if (DateTime.Compare(eventRepository.GetEventById(8).Create, dateTimePicker2.Value) > 0)
             {
                 MessageBox.Show("Date Begin less than Date Create", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 dateTimePicker2.Focus();
@@ -53,7 +53,7 @@ namespace FptEventWinApp
                 richTextBox1.Focus();
                 return false;
             }
-            
+
             return true;
         }
         public bool checkDateTime(Event e)
@@ -64,7 +64,7 @@ namespace FptEventWinApp
 
             foreach (Event ee in evn)
             {
-                if(ee.Id != e.Id)
+                if (ee.Id != e.Id)
                 {
                     checkdate.Add(ee);
                 }
@@ -75,22 +75,23 @@ namespace FptEventWinApp
                 {
                     checktime.Add(ee);
                 }
-                
+
             }
             foreach (Event en in checktime)
             {
-                if ((DateTime.Compare(dateTimePicker2.Value, en.End) <= 0 && DateTime.Compare(dateTimePicker2.Value, en.Begin) >= 0) ==true )
+                if ((DateTime.Compare(dateTimePicker2.Value, en.End) <= 0 && DateTime.Compare(dateTimePicker2.Value, en.Begin) >= 0) == true)
                 {
                     MessageBox.Show(" date and time coincide with the previous created event", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     dateTimePicker2.Focus();
                     return false;
-                }if((DateTime.Compare(dateTimePicker3.Value, en.End) <= 0 && DateTime.Compare(dateTimePicker3.Value, en.Begin) >= 0) == true)
+                }
+                if ((DateTime.Compare(dateTimePicker3.Value, en.End) <= 0 && DateTime.Compare(dateTimePicker3.Value, en.Begin) >= 0) == true)
                 {
                     MessageBox.Show(" date1 and time coincide with the previous created event", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     dateTimePicker3.Focus();
                     return false;
                 }
-                
+
             }
             return true;
         }
@@ -102,10 +103,9 @@ namespace FptEventWinApp
             string pathString = System.IO.Path.Combine(pic.Image1);
 
             textBox1.Text = ev.Name;
-            dateTimePicker1.Value = ev.Create;
             dateTimePicker2.Value = ev.Begin;
             dateTimePicker3.Value = ev.End;
-            pictureBox1.Image = Image.FromFile(pathString);
+            pictureBox1.Image = System.Drawing.Image.FromFile(pathString);
             richTextBox1.Text = ev.Content;
         }
 
@@ -113,6 +113,7 @@ namespace FptEventWinApp
         {
             if (getCheck() && checkDateTime(eventRepository.GetEventById(8)))
             {
+                var eve = eventRepository.GetEventById(8);
                 try
                 {
                     var ev = new Event
@@ -120,11 +121,11 @@ namespace FptEventWinApp
                         Id = 8,
                         Name = textBox1.Text,
                         IdUser = 8,
-                        Create = dateTimePicker1.Value,
+                        Create = eve.Create,
                         Begin = dateTimePicker2.Value,
                         End = dateTimePicker3.Value,
                         Status = true,
-                        IdCategory = 1,
+
                         Content = richTextBox1.Text,
                     };
                     eventRepository.Update(ev);
@@ -133,10 +134,10 @@ namespace FptEventWinApp
                     string pathString = System.IO.Path.Combine(folder, fname);
                     if (!pathString.Equals(imageRepository.GetImage(ev.Id).Image1))
                     {
-                        Image a = pictureBox1.Image;
+                        System.Drawing.Image a = pictureBox1.Image;
                         a.Save(pathString);
                     }
-                    var pic = new Images
+                    var pic = new BussinessLayer.Models.Image
                     {
                         Id = imageRepository.GetImage(ev.Id).Id,
                         IdEvent = ev.Id,
@@ -165,7 +166,7 @@ namespace FptEventWinApp
                     dialog.Filter = "jpg files(.*jpg)|*.jpg| PNG files(.*png)|*.png| All Files(*.*)|*.*";
                     if (dialog.ShowDialog() == DialogResult.OK)
                     {
-                        p.Image = Image.FromFile(dialog.FileName);
+                        p.Image = System.Drawing.Image.FromFile(dialog.FileName);
                     }
                 }
 
