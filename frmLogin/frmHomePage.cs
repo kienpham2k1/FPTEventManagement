@@ -24,8 +24,10 @@ public partial class frmHomePage : Form
     }
     public static void addNavBar()
     {
-        pnNavigation.Controls.Add(new NavigationGuest());
+        pnNavigation.Controls.Clear();
+        NavigationGuest navbar = new NavigationGuest();
         NavigationGuest.userLogin = userLogin;
+        pnNavigation.Controls.Add(navbar);
     }
     private static UserControl activeForm = null;
     public static void openContainer(UserControl container)

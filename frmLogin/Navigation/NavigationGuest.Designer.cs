@@ -34,16 +34,15 @@
             this.btnViewNotify = new System.Windows.Forms.Button();
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnSearch = new System.Windows.Forms.Button();
-            this.btnViewFollow = new System.Windows.Forms.Button();
             this.logo = new System.Windows.Forms.PictureBox();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.btnExit = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.logo)).BeginInit();
             this.SuspendLayout();
             // 
             // btnTimeSchedule
             // 
-            this.btnTimeSchedule.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnTimeSchedule.FlatAppearance.BorderSize = 0;
             this.btnTimeSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTimeSchedule.Image = global::FptEventWinApp.Properties.Resources.calendar;
@@ -58,7 +57,6 @@
             // 
             // btnHome
             // 
-            this.btnHome.Dock = System.Windows.Forms.DockStyle.Left;
             this.btnHome.FlatAppearance.BorderSize = 0;
             this.btnHome.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnHome.Image = global::FptEventWinApp.Properties.Resources.home;
@@ -77,20 +75,21 @@
             this.btnViewNotify.FlatAppearance.BorderSize = 0;
             this.btnViewNotify.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnViewNotify.Image = ((System.Drawing.Image)(resources.GetObject("btnViewNotify.Image")));
-            this.btnViewNotify.Location = new System.Drawing.Point(1669, 0);
+            this.btnViewNotify.Location = new System.Drawing.Point(1477, 0);
             this.btnViewNotify.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnViewNotify.Name = "btnViewNotify";
             this.btnViewNotify.Size = new System.Drawing.Size(70, 56);
             this.btnViewNotify.TabIndex = 3;
             this.btnViewNotify.Text = " ";
             this.btnViewNotify.UseVisualStyleBackColor = true;
+            this.btnViewNotify.Visible = false;
             // 
             // btnLogin
             // 
             this.btnLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLogin.FlatAppearance.BorderSize = 0;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Image = ((System.Drawing.Image)(resources.GetObject("btnLogin.Image")));
+            this.btnLogin.Image = global::FptEventWinApp.Properties.Resources.sign_in_alt;
             this.btnLogin.Location = new System.Drawing.Point(1739, 0);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLogin.Name = "btnLogin";
@@ -114,19 +113,6 @@
             this.btnSearch.UseVisualStyleBackColor = true;
             this.btnSearch.Click += new System.EventHandler(this.button6_Click);
             // 
-            // btnViewFollow
-            // 
-            this.btnViewFollow.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnViewFollow.FlatAppearance.BorderSize = 0;
-            this.btnViewFollow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnViewFollow.Image = ((System.Drawing.Image)(resources.GetObject("btnViewFollow.Image")));
-            this.btnViewFollow.Location = new System.Drawing.Point(1599, 0);
-            this.btnViewFollow.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.btnViewFollow.Name = "btnViewFollow";
-            this.btnViewFollow.Size = new System.Drawing.Size(70, 56);
-            this.btnViewFollow.TabIndex = 6;
-            this.btnViewFollow.Text = " ";
-            // 
             // logo
             // 
             this.logo.Dock = System.Windows.Forms.DockStyle.Left;
@@ -142,11 +128,10 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Dock = System.Windows.Forms.DockStyle.Left;
-            this.txtSearch.Location = new System.Drawing.Point(126, 0);
-            this.txtSearch.Multiline = true;
+            this.txtSearch.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.txtSearch.Location = new System.Drawing.Point(130, 13);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(274, 56);
+            this.txtSearch.Size = new System.Drawing.Size(274, 29);
             this.txtSearch.TabIndex = 8;
             // 
             // btnExit
@@ -159,12 +144,21 @@
             this.btnExit.TabIndex = 9;
             this.btnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(1553, 18);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(180, 23);
+            this.textBox1.TabIndex = 10;
+            this.textBox1.Visible = false;
+            // 
             // NavigationGuest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.btnViewFollow);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.btnViewNotify);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.btnExit);
@@ -190,9 +184,9 @@
         private System.Windows.Forms.Button btnViewNotify;
         private System.Windows.Forms.Button btnLogin;
         private System.Windows.Forms.Button btnSearch;
-        private System.Windows.Forms.Button btnViewFollow;
         private System.Windows.Forms.PictureBox logo;
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }

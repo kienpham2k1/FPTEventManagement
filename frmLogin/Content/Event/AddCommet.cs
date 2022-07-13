@@ -17,7 +17,7 @@ namespace FptEventWinApp
         public User userLogin { get; set; }
         public int idEvent { get; set; }
         ICommentRepository cmtRepo = new CommentRepository();
-        
+
 
         public AddCommet()
         {
@@ -35,7 +35,6 @@ namespace FptEventWinApp
             {
                 BussinessLayer.Models.Comment cmt = new BussinessLayer.Models.Comment
                 {
-                    IdReplyComment = null,
                     IdEvent = idEvent,
                     IdUser = frmHomePage.userLogin.Id,
                     Comment1 = textBox1.Text,

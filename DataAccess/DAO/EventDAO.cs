@@ -41,6 +41,21 @@ namespace DataAccess
             }
             return @event;
         }
+
+        public IEnumerable<Event> GetEvents(string nameEvent)
+        {
+            IEnumerable<Event> events;
+            try {
+                var context = new FEventContext();
+                events = context.Events.Where(x => x.Name.ToLower().Contains(nameEvent.ToLower()));
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+            return events;
+        }
+
         public IEnumerable<Event> GetEvents(DateTime? time)
         {
             IEnumerable<Event> events = null;

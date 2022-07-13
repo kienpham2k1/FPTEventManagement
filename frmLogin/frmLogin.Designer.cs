@@ -30,6 +30,7 @@
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.registorForm1 = new FptEventWinApp.RegistorForm();
             this.loginPanel1 = new FptEventWinApp.loginPanel();
             this.button1 = new System.Windows.Forms.Button();
@@ -40,6 +41,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
@@ -57,6 +59,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.registorForm1);
             this.panel1.Controls.Add(this.loginPanel1);
             this.panel1.Location = new System.Drawing.Point(343, -2);
@@ -64,6 +67,17 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(353, 280);
             this.panel1.TabIndex = 1;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = global::FptEventWinApp.Properties.Resources._292303031_748371456379733_6098412426596820152_n;
+            this.pictureBox2.Location = new System.Drawing.Point(315, 3);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(35, 32);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 19;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.PictureBox2_Click);
             // 
             // registorForm1
             // 
@@ -144,7 +158,7 @@
             this.panel3.Size = new System.Drawing.Size(277, 1);
             this.panel3.TabIndex = 14;
             // 
-            // Logintest
+            // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -159,12 +173,13 @@
             this.Controls.Add(this.pictureBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "Logintest";
+            this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Logintest_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
@@ -186,6 +201,7 @@
         private System.Windows.Forms.Panel panel3;
         private loginPanel loginPanel1;
         private RegistorForm registorForm1;
+        private System.Windows.Forms.PictureBox pictureBox2;
         //private RegistorControl registorControl1;
         //private ControlLogin controlLogin1;
         //private project222.UserControlLogin userControlLogin2;

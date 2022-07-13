@@ -20,6 +20,7 @@ namespace DataAccess.Repository
         IEnumerable<Event> GetEvents(DateTime time);
         IEnumerable<Event> GetEvents(int idUserfollow);
         IEnumerable<Event> GetEventsUserCreate(int idUserCreate);
+        IEnumerable<Event> GetEvents(string nameEvent);
         //IEnumerable<Event> GetEvents(string nameEvent = null, IEnumerable<Event> searchList = null);
         //IEnumerable<Event> GetEvents(int? idUserCreate = null);
         //IEnumerable<Event> GetEvents(int? idFollower = null, IEnumerable<Event> searchList = null);

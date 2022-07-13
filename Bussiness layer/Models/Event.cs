@@ -13,7 +13,6 @@ namespace BussinessLayer.Models
             Follows = new HashSet<Follow>();
             Images = new HashSet<Image>();
             Likes = new HashSet<Like>();
-            Videos = new HashSet<Video>();
         }
 
         public int Id { get; set; }
@@ -26,14 +25,11 @@ namespace BussinessLayer.Models
         public int? Vote { get; set; }
         public int? Follow { get; set; }
         public bool Status { get; set; }
-        public int IdCategory { get; set; }
         public string Content { get; set; }
 
-        public virtual Category IdCategoryNavigation { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
         public virtual ICollection<Follow> Follows { get; set; }
         public virtual ICollection<Image> Images { get; set; }
         public virtual ICollection<Like> Likes { get; set; }
-        public virtual ICollection<Video> Videos { get; set; }
     }
 }

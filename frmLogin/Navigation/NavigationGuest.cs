@@ -9,11 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Accessibility;
 using BussinessLayer.Models;
+using DataAccess.Repository;
 
 namespace FptEventWinApp
 {
     public partial class NavigationGuest : UserControl
     {
+        IEventRepository evtRepo = new EventRepository();
         public static User userLogin;
         public NavigationGuest()
         {
@@ -41,10 +43,8 @@ namespace FptEventWinApp
             btnSearch.Image = Properties.Resources.search_free_icon_font;
             btnHome.Image = Properties.Resources.home;
             btnTimeSchedule.Image = Properties.Resources.calendar;
-            // frmHomePage.openSearchBox();
-            if (frmHomePage.userLogin == null) txtSearch.Text = "Chua login";
-            else
-                txtSearch.Text = frmHomePage.userLogin.Name.ToString();
+            var search = evtRepo.GetEvents(txtSearch.Text);
+            frmHomePage.loadEvent(search);
         }
 
         private void BtnExit_Click(object sender, EventArgs e)
@@ -54,10 +54,32 @@ namespace FptEventWinApp
 
         private void NavigationGuest_Load(object sender, EventArgs e)
         {
-            //userLogin = _user;
-            if (userLogin == null) txtSearch.Text = "Chua login";
+            if (userLogin == null)
+            {
+                btnLogin.Click += new System.EventHandler(BtnLogin_Click);
+                btnViewNotify.Visible = false;
+                textBox1.Visible = false;
+            }
             else
-                txtSearch.Text = userLogin.Id.ToString();
+            {
+                btnLogin.Click += new System.EventHandler(Logout_Click);
+                btnViewNotify.Visible = true;
+                textBox1.Visible = true;
+                textBox1.Text = $"Hello: {userLogin.Name}";
+                btnLogin.Image = Properties.Resources.sign_out_alt_free_icon_font;
+            }
+        }
+        private void Logout_Click(object sender, EventArgs e)
+        {
+            frmHomePage.userLogin = null;
+            NavigationGuest navbar = new NavigationGuest();
+            NavigationGuest.userLogin = null;
+            frmHomePage.pnNavigation.Controls.Add(navbar);
+        }
+        private void BtnLogin_Click(object sender, EventArgs e)
+        {
+            frmLogin frmLogin = new frmLogin();
+            frmLogin.ShowDialog();
         }
     }
 }

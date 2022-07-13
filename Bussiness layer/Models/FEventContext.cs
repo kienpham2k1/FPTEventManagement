@@ -17,7 +17,6 @@ namespace BussinessLayer.Models
         {
         }
 
-        public virtual DbSet<Category> Categories { get; set; }
         public virtual DbSet<Comment> Comments { get; set; }
         public virtual DbSet<Event> Events { get; set; }
         public virtual DbSet<Follow> Follows { get; set; }
@@ -25,7 +24,6 @@ namespace BussinessLayer.Models
         public virtual DbSet<Like> Likes { get; set; }
         public virtual DbSet<Role> Roles { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<Video> Videos { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -40,20 +38,6 @@ namespace BussinessLayer.Models
         {
             modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CS_AS");
 
-            modelBuilder.Entity<Category>(entity =>
-            {
-                entity.ToTable("Category");
-
-                entity.Property(e => e.Id).HasColumnName("id");
-
-                entity.Property(e => e.Name)
-                    .IsRequired()
-                    .HasMaxLength(50)
-                    .HasColumnName("name");
-
-                entity.Property(e => e.Status).HasColumnName("status");
-            });
-
             modelBuilder.Entity<Comment>(entity =>
             {
                 entity.ToTable("Comment");
@@ -66,8 +50,6 @@ namespace BussinessLayer.Models
                     .HasColumnName("comment");
 
                 entity.Property(e => e.IdEvent).HasColumnName("id_event");
-
-                entity.Property(e => e.IdReplyComment).HasColumnName("id_reply_comment");
 
                 entity.Property(e => e.IdUser).HasColumnName("id_user");
 
@@ -82,11 +64,6 @@ namespace BussinessLayer.Models
                     .HasForeignKey(d => d.IdEvent)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Comment_Event");
-
-                entity.HasOne(d => d.IdReplyCommentNavigation)
-                    .WithMany(p => p.InverseIdReplyCommentNavigation)
-                    .HasForeignKey(d => d.IdReplyComment)
-                    .HasConstraintName("FK_Comment_Comment");
 
                 entity.HasOne(d => d.IdUserNavigation)
                     .WithMany(p => p.Comments)
@@ -120,8 +97,6 @@ namespace BussinessLayer.Models
 
                 entity.Property(e => e.Follow).HasColumnName("follow");
 
-                entity.Property(e => e.IdCategory).HasColumnName("id_category");
-
                 entity.Property(e => e.IdUser).HasColumnName("id_user");
 
                 entity.Property(e => e.Like).HasColumnName("like");
@@ -134,12 +109,6 @@ namespace BussinessLayer.Models
                 entity.Property(e => e.Status).HasColumnName("status");
 
                 entity.Property(e => e.Vote).HasColumnName("vote");
-
-                entity.HasOne(d => d.IdCategoryNavigation)
-                    .WithMany(p => p.Events)
-                    .HasForeignKey(d => d.IdCategory)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Event_Category");
             });
 
             modelBuilder.Entity<Follow>(entity =>
@@ -262,25 +231,6 @@ namespace BussinessLayer.Models
                     .HasForeignKey(d => d.RoleId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_User_Role");
-            });
-
-            modelBuilder.Entity<Video>(entity =>
-            {
-                entity.ToTable("Video");
-
-                entity.Property(e => e.Id).HasColumnName("id");
-
-                entity.Property(e => e.IdEvent).HasColumnName("id_event");
-
-                entity.Property(e => e.Video1)
-                    .HasMaxLength(50)
-                    .HasColumnName("video");
-
-                entity.HasOne(d => d.IdEventNavigation)
-                    .WithMany(p => p.Videos)
-                    .HasForeignKey(d => d.IdEvent)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_Video_Event");
             });
 
             OnModelCreatingPartial(modelBuilder);

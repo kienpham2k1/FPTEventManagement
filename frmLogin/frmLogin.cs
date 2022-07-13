@@ -20,17 +20,24 @@ namespace FptEventWinApp
         private void button1_Click(object sender, EventArgs e)
         {
             registorForm1.BringToFront();
+            pictureBox2.BringToFront();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Close();
-            //loginPanel1.BringToFront();
+            loginPanel1.BringToFront();
+            pictureBox2.BringToFront();
         }
 
         private void Logintest_Load(object sender, EventArgs e)
         {
             loginPanel1.BringToFront();
+            pictureBox2.BringToFront();
+        }
+
+        private void PictureBox2_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

@@ -63,6 +63,16 @@ namespace FptEventWinApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _292303031_748371456379733_6098412426596820152_n {
+            get {
+                object obj = ResourceManager.GetObject("292303031_748371456379733_6098412426596820152_n", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap add {
             get {
                 object obj = ResourceManager.GetObject("add", resourceCulture);
@@ -626,6 +636,16 @@ namespace FptEventWinApp.Properties {
         internal static System.Drawing.Bitmap sign_out_alt {
             get {
                 object obj = ResourceManager.GetObject("sign-out-alt", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap sign_out_alt_free_icon_font {
+            get {
+                object obj = ResourceManager.GetObject("sign-out-alt-free-icon-font", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -87,16 +87,19 @@ namespace FptEventWinApp
                 {
                     frmHomePage.userLogin = user;
                     NavigationGuest.userLogin = user;
-                    if (user.RoleId == 1)
-                    {                       
-                        MessageBox.Show("this is admin");
-                    }
-                    else
-                    {
-                        MessageBox.Show("Im user");
-                    }
+                    MessageBox.Show("Login success!!!");
+                    frmHomePage.pnNavigation.Controls.Clear();
+                    addNavBar(user);
+                    frmLogin.ActiveForm.Close();
                 }
             }
+        }
+
+        public void addNavBar(User userLogin)
+        {
+            NavigationGuest navbar = new NavigationGuest();
+            NavigationGuest.userLogin = userLogin;
+            frmHomePage.pnNavigation.Controls.Add(navbar);
         }
 
         private void txtemail_Leave(object sender, EventArgs e)
