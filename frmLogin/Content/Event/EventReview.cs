@@ -16,6 +16,7 @@ namespace FptEventWinApp
     {
         IImageRepository imageRepo = new ImageRepository();
         IUserRepository userRepo = new UserRepository();
+        IEventRepository eventRepo = new EventRepository();
         public Event @event { get; set; }
         public User userLogin { get; set; }
         public int back { get; set; }
@@ -38,6 +39,14 @@ namespace FptEventWinApp
 
         private void EventReview_Load(object sender, EventArgs e)
         {
+            if (frmHomePage.userLogin != null)
+            {
+                if (frmHomePage.userLogin.RoleId == 1 && frmHomePage.userLogin.Id == @event.IdUser)
+                {
+                    button1.Visible = true;
+                    button2.Visible = true;
+                }
+            }
             lbStartAt.Text = @event.Begin.ToString("HH:mm \ndd/MM/yyyy");
             lbEndAt.Text = @event.End.ToString("HH:mm \ndd/MM/yyyy");
             linkLbNameEvt.Text = @event.Name.ToString();
@@ -48,7 +57,10 @@ namespace FptEventWinApp
             }
             try
             {
-                lbbyUser.Text = userRepo.GetUser(@event.IdUser).Name;
+                if (userRepo.GetUser(@event.IdUser) != null)
+                {
+                    lbbyUser.Text = userRepo.GetUser(@event.IdUser).Name;
+                }
                 if (urlPic != null)
                 {
                     picBoxView.Image = System.Drawing.Image.FromFile(@$"{urlPic}");
@@ -90,6 +102,19 @@ namespace FptEventWinApp
                 back = this.back,
             };
             EventContainer.flpContent.Controls.Add(detailEvent);
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            frmEditEvent editEvent = new frmEditEvent { @event = @event };
+            editEvent.Show();
+        }
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Do you want to delete this Event", "Delete Event", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                eventRepo.DeleteEvent(@event);
+            }
         }
     }
 }

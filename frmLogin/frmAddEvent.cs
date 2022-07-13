@@ -16,8 +16,8 @@ namespace FptEventWinApp
     {
         IEventRepository eventRepository = new EventRepository();
         IImageRepository imageRepository = new ImageRepository();
-        DateTime now = DateTime.Parse(DateTime.Now.ToString("MM/dd/yyyy"));
-
+        //DateTime now = DateTime.Parse(DateTime.Now.ToString("MM/dd/yyyy"));
+        User user;
         public frmAddEvent()
         {
             InitializeComponent();
@@ -85,7 +85,7 @@ namespace FptEventWinApp
 
         private void frmAddEvent_Load(object sender, EventArgs e)
         {
-
+            user = frmHomePage.userLogin;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -117,12 +117,10 @@ namespace FptEventWinApp
             {
                 try
                 {
-
-
                     var ev = new Event
                     {
                         Name = textBox1.Text,
-                        IdUser = 8,
+                        IdUser = user.Id,
                         Create = DateTime.Now,
                         Begin = dateTimePicker2.Value,
                         End = dateTimePicker3.Value,
@@ -142,16 +140,21 @@ namespace FptEventWinApp
                         Image1 = pathString,
                     };
                     imageRepository.SaveImage(pic);
-
-                    MessageBox.Show("suc");
+                    if (MessageBox.Show("Successfully!!!", "Add OK", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.Yes)
+                        frmAddEvent.ActiveForm.Close();
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Fail");
+                    MessageBox.Show("Error!!!");
 
                 }
             }
 
+        }
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

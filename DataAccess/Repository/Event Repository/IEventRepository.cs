@@ -28,6 +28,7 @@ namespace DataAccess.Repository
         IEnumerable<Event> GetEvents(int idUserfollow);
         IEnumerable<Event> GetEventsUserCreate(int idUserCreate);
         IEnumerable<Event> GetEvents(string nameEvent);
+        void DeleteEvent(Event evennt);
         //IEnumerable<Event> GetEvents(string nameEvent = null, IEnumerable<Event> searchList = null);
         //IEnumerable<Event> GetEvents(int? idUserCreate = null);
         //IEnumerable<Event> GetEvents(int? idFollower = null, IEnumerable<Event> searchList = null);

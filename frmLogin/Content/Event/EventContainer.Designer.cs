@@ -101,6 +101,7 @@
             this.btnAddNewEvent.TabIndex = 3;
             this.btnAddNewEvent.Text = "Add New Event";
             this.btnAddNewEvent.UseVisualStyleBackColor = false;
+            this.btnAddNewEvent.Click += new System.EventHandler(this.BtnAddNewEvent_Click);
             // 
             // panelFilter
             // 
@@ -182,6 +183,6 @@
         private System.Windows.Forms.Button btnAddNewEvent;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
-     static   public System.Windows.Forms.FlowLayoutPanel flpContent;
+        static   public System.Windows.Forms.FlowLayoutPanel flpContent;
     }
 }

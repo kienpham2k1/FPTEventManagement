@@ -16,6 +16,9 @@ namespace FptEventWinApp
     {
         IEventRepository eventRepository = new EventRepository();
         IImageRepository imageRepository = new ImageRepository();
+
+        static public bool isOpen = false;
+        public Event @event { get; set; }
         public frmEditEvent()
         {
             InitializeComponent();
@@ -29,7 +32,7 @@ namespace FptEventWinApp
                 return false;
             }
 
-            if (DateTime.Compare(eventRepository.GetEventById(8).Create, dateTimePicker2.Value) > 0)
+            if (DateTime.Compare(@event.Create, dateTimePicker2.Value) > 0)
             {
                 MessageBox.Show("Date Begin less than Date Create", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 dateTimePicker2.Focus();
@@ -98,7 +101,7 @@ namespace FptEventWinApp
 
         private void frmEditEvent_Load(object sender, EventArgs e)
         {
-            var ev = eventRepository.GetEventById(8);
+            var ev = eventRepository.GetEventById(@event.Id);
             var pic = imageRepository.GetImage(ev.Id);
             string pathString = System.IO.Path.Combine(pic.Image1);
 
@@ -111,17 +114,16 @@ namespace FptEventWinApp
 
         private void button2_Click(object sender, EventArgs e)
         {
-            if (getCheck() && checkDateTime(eventRepository.GetEventById(8)))
+            if (getCheck() && checkDateTime(eventRepository.GetEventById(@event.Id)))
             {
-                var eve = eventRepository.GetEventById(8);
                 try
                 {
                     var ev = new Event
                     {
-                        Id = 8,
+                        Id = @event.Id,
                         Name = textBox1.Text,
-                        IdUser = 8,
-                        Create = eve.Create,
+                        IdUser = frmHomePage.userLogin.Id,
+                        Create = @event.Create,
                         Begin = dateTimePicker2.Value,
                         End = dateTimePicker3.Value,
                         Status = true,

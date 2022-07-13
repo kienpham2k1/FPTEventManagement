@@ -250,5 +250,32 @@ namespace DataAccess
             }
             return events;
         }
+        public void DeleteEvent(Event @event)
+        {
+            try
+            {
+                var context = new FEventContext();
+                Event _event = new Event
+                {
+                    Id = @event.Id,
+                    Name = @event.Name,
+                    IdUser = @event.IdUser,
+                    Create = @event.Create,
+                    Begin = @event.Begin,
+                    End = @event.End,
+                    Like = @event.Like + 1,
+                    Vote = @event.Vote,
+                    Follow = @event.Follow,
+                    Status = false,
+                    Content = @event.Content,
+                };
+                context.Update(_event);
+                context.SaveChanges();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

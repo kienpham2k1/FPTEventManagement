@@ -17,7 +17,7 @@ namespace DataAccess.Repository
         public IEnumerable<Event> GetEventsUserCreate(int idUserCreate) => EventDAO.Instance.GetEventsUserCreate(idUserCreate);
         public IEnumerable<Event> GetEvents(string nameEvent) => EventDAO.Instance.GetEvents(nameEvent);
         public Event GetEventById(int id) => EventDAO.Instance.GetEventById(id);
-        
+        public void DeleteEvent(Event evennt) => EventDAO.Instance.DeleteEvent(evennt);
 
         public IEnumerable<Event> GetEvents() => EventDAO.Instance.GetEvents();
 
@@ -26,6 +26,6 @@ namespace DataAccess.Repository
         public void SaveEvent(Event e) => EventDAO.Instance.SaveEvent(e);
 
         public void Update(Event e) => EventDAO.Instance.Update(e);
-        
+
     }
 }

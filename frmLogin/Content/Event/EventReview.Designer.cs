@@ -37,6 +37,7 @@
             this.pnContent = new System.Windows.Forms.Panel();
             this.lbbyUser = new System.Windows.Forms.Label();
             this.lbSmallDescription = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picBoxView)).BeginInit();
             this.pnTime.SuspendLayout();
             this.pnContent.SuspendLayout();
@@ -144,10 +145,22 @@
             this.lbSmallDescription.TabIndex = 3;
             this.lbSmallDescription.Text = "Small Description";
             // 
+            // button1
+            // 
+            this.button1.Image = global::FptEventWinApp.Properties.Resources.edit_free_icon_font;
+            this.button1.Location = new System.Drawing.Point(968, 4);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(29, 23);
+            this.button1.TabIndex = 5;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            // 
             // EventReview
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.Transparent;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.pnContent);
             this.Controls.Add(this.pnTime);
             this.Controls.Add(this.picBoxView);
@@ -173,5 +186,6 @@
         public System.Windows.Forms.Label lbSmallDescription;
         public System.Windows.Forms.Label lbbyUser;
         public System.Windows.Forms.PictureBox picBoxView;
+        private System.Windows.Forms.Button button1;
     }
 }

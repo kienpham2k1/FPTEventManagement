@@ -97,5 +97,11 @@ namespace FptEventWinApp
                     MessageBox.Show("Not found");
             }
         }
+
+        private void BtnAddNewEvent_Click(object sender, EventArgs e)
+        {
+            frmAddEvent addEvt = new frmAddEvent();
+            addEvt.Show();
+        }
     }
 }
