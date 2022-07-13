@@ -27,7 +27,7 @@ namespace FptEventWinApp
             pictureBox3.Image = pass1;
         }
 
-       public bool getCheck()
+        public bool getCheck()
         {
             if (String.IsNullOrEmpty(txtemail.Text))
             {
@@ -44,7 +44,7 @@ namespace FptEventWinApp
             return true;
         }
 
-       
+
 
         private void txtusername_Click_1(object sender, EventArgs e)
         {
@@ -85,8 +85,10 @@ namespace FptEventWinApp
                 }
                 else
                 {
+                    frmHomePage.userLogin = user;
+                    NavigationGuest.userLogin = user;
                     if (user.RoleId == 1)
-                    {
+                    {                       
                         MessageBox.Show("this is admin");
                     }
                     else
@@ -100,7 +102,7 @@ namespace FptEventWinApp
         private void txtemail_Leave(object sender, EventArgs e)
         {
             string parttern = "^[a-z][a-z0-9_\\.]{5,32}@fpt.edu.vn$";
-            if(Regex.IsMatch(txtemail.Text, parttern))
+            if (Regex.IsMatch(txtemail.Text, parttern))
             {
                 errorProvider1.Clear();
             }

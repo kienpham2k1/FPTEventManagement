@@ -36,16 +36,17 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.label1.Location = new System.Drawing.Point(2, 3);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 15);
+            this.label1.Size = new System.Drawing.Size(64, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "user name";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.White;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.label2.Location = new System.Drawing.Point(68, 15);
             this.label2.MaximumSize = new System.Drawing.Size(700, 0);
             this.label2.MinimumSize = new System.Drawing.Size(700, 0);
@@ -58,13 +59,14 @@
             // 
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Location = new System.Drawing.Point(769, -1);
+            this.button1.Image = global::FptEventWinApp.Properties.Resources.trash_free_icon_font;
+            this.button1.Location = new System.Drawing.Point(768, 1);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(30, 23);
             this.button1.TabIndex = 2;
-            this.button1.Text = "...";
             this.button1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // CommentUSC
@@ -77,7 +79,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "CommentUSC";
-            this.Size = new System.Drawing.Size(798, 48);
+            this.Size = new System.Drawing.Size(798, 44);
             this.Load += new System.EventHandler(this.Comment_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

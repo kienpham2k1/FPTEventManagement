@@ -15,8 +15,7 @@ using DataAccess.Repository;
 //{
 public partial class frmHomePage : Form
 {
-    IEventRepository eventRepo = new EventRepository();
-    public static User userLogin { get; set; }
+    static public User userLogin;
     public frmHomePage()
     {
         InitializeComponent();
@@ -25,7 +24,8 @@ public partial class frmHomePage : Form
     }
     public static void addNavBar()
     {
-        pnNavigation.Controls.Add(new NavigationGuest { userLogin = userLogin });
+        pnNavigation.Controls.Add(new NavigationGuest());
+        NavigationGuest.userLogin = userLogin;
     }
     private static UserControl activeForm = null;
     public static void openContainer(UserControl container)
@@ -53,6 +53,7 @@ public partial class frmHomePage : Form
                     events = events,
                     back = back.Value,
                 });
+
             }
             else
             {

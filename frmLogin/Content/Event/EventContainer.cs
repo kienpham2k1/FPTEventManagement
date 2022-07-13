@@ -19,14 +19,14 @@ namespace FptEventWinApp
         public IEnumerable<Event> events { get; set; }
         public User userLogin { get; set; }
         public int back { get; set; }
-        Logintest frmLogin;
+        frmLogin frmLogin;
         public EventContainer()
         {
             InitializeComponent();
         }
         private void ListEvent_Load(object sender, EventArgs e)
         {
-            if (userLogin == null || userLogin.RoleId != 1)
+            if (frmHomePage.userLogin == null || frmHomePage.userLogin.RoleId != 1)
             {
                 btnAddNewEvent.Visible = false;
             }
@@ -64,33 +64,37 @@ namespace FptEventWinApp
         private void RadioButton1_CheckedChanged(object sender, EventArgs e)
         {
 
-            if (userLogin == null)
+            if (frmHomePage.userLogin == null)
             {
-                frmLogin = new Logintest();
+                frmLogin = new frmLogin();
                 frmLogin.Show();
             }
             else
             {
                 IEnumerable<Event> search = null;
-                search = eventRepo.GetEvents(userLogin.Id);
+                search = eventRepo.GetEvents(frmHomePage.userLogin.Id);
                 if (search != null)
                     LoadEvent(search);
+                else
+                    MessageBox.Show("Not found");
             }
         }
 
         private void RadioButton2_CheckedChanged(object sender, EventArgs e)
         {
-            if (userLogin == null)
+            if (frmHomePage.userLogin == null)
             {
-                frmLogin = new Logintest();
+                frmLogin = new frmLogin();
                 frmLogin.Show();
             }
             else
             {
                 IEnumerable<Event> search = null;
-                search = eventRepo.GetEventsUserCreate(1);
+                search = eventRepo.GetEventsUserCreate(frmHomePage.userLogin.Id);
                 if (search != null)
                     LoadEvent(search);
+                else
+                    MessageBox.Show("Not found");
             }
         }
     }

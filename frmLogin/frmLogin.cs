@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace FptEventWinApp
 {
-    public partial class Logintest : Form
+    public partial class frmLogin : Form
     {
-        public Logintest()
+        public frmLogin()
         {
             InitializeComponent();
         }

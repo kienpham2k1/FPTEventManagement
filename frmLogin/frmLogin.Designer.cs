@@ -1,6 +1,6 @@
 ﻿namespace FptEventWinApp
 {
-    partial class Logintest
+    partial class frmLogin
     {
         /// <summary>
         /// Required designer variable.

@@ -64,7 +64,7 @@ namespace FptEventWinApp
 
         private void TimeScheduleContainer_Load(object sender, EventArgs e)
         {
-            if (userLogin == null || userLogin.RoleId != 1)
+            if (frmHomePage.userLogin == null || frmHomePage.userLogin.RoleId != 1)
             {
                 btnAddNewEvent.Visible = false;
             }

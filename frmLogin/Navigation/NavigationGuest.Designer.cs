@@ -176,6 +176,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "NavigationGuest";
             this.Size = new System.Drawing.Size(1884, 56);
+            this.Load += new System.EventHandler(this.NavigationGuest_Load);
             ((System.ComponentModel.ISupportInitialize)(this.logo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -43,12 +43,12 @@ namespace FptEventWinApp
 
             this.groupBox1.Location = new Point(57, this.label3.Location.Y + this.label3.Size.Height + 20);
             this.flowLayoutPanel2.Location = new Point(105, this.label3.Location.Y + this.label3.Size.Height + 30 + this.groupBox1.Height);
-            if (userLogin != null)
+            if (frmHomePage.userLogin != null)
             {
                 AddCommet addCmt = new AddCommet
                 {
                     idEvent = @event.Id,
-                    userLogin = userLogin
+                    userLogin = frmHomePage.userLogin
                 };
                 flowLayoutPanel2.Controls.Add(addCmt);
             }
@@ -82,9 +82,9 @@ namespace FptEventWinApp
         }
         private void buttonFollowChange()
         {
-            if (userLogin != null)
+            if (frmHomePage.userLogin != null)
             {
-                if (followRepo.GetFollow(userLogin.Id, @event.Id) != null)
+                if (followRepo.GetFollow(frmHomePage.userLogin.Id, @event.Id) != null)
                 {
                     this.button2.Image = global::FptEventWinApp.Properties.Resources.following_free_icon_font;
                 }
@@ -96,9 +96,9 @@ namespace FptEventWinApp
         }
         private void buttonLikeChange()
         {
-            if (userLogin != null)
+            if (frmHomePage.userLogin != null)
             {
-                if (likeRepo.GetLike(userLogin.Id, @event.Id) != null)
+                if (likeRepo.GetLike(frmHomePage.userLogin.Id, @event.Id) != null)
                 {
                     this.button1.Image = global::FptEventWinApp.Properties.Resources.heart_free_icon_font;
                 }
@@ -110,14 +110,14 @@ namespace FptEventWinApp
         }
         private void Button1_Click(object sender, EventArgs e)
         {
-            if (userLogin == null)
+            if (frmHomePage.userLogin == null)
             {
-                Logintest frmLogin = new Logintest();
+                frmLogin frmLogin = new frmLogin();
                 frmLogin.ShowDialog();
             }
             else
             {
-                eventRepo.Like(userLogin.Id, @event.Id);
+                eventRepo.Like(frmHomePage.userLogin.Id, @event.Id);
                 buttonLikeChange();
             }
         }
@@ -142,14 +142,14 @@ namespace FptEventWinApp
 
         private void Button2_Click_1(object sender, EventArgs e)
         {
-            if (userLogin == null)
+            if (frmHomePage.userLogin == null)
             {
-                Logintest frmLogin = new Logintest();
+                frmLogin frmLogin = new frmLogin();
                 frmLogin.ShowDialog();
             }
             else
             {
-                eventRepo.Follow(userLogin.Id, @event.Id);
+                eventRepo.Follow(frmHomePage.userLogin.Id, @event.Id);
                 buttonFollowChange();
             }
         }

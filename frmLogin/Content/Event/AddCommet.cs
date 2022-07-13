@@ -26,9 +26,9 @@ namespace FptEventWinApp
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            if (userLogin == null)
+            if (frmHomePage.userLogin == null)
             {
-                Logintest frmLogin = new Logintest();
+                frmLogin frmLogin = new frmLogin();
                 frmLogin.ShowDialog();
             }
             else
@@ -37,7 +37,7 @@ namespace FptEventWinApp
                 {
                     IdReplyComment = null,
                     IdEvent = idEvent,
-                    IdUser = userLogin.Id,
+                    IdUser = frmHomePage.userLogin.Id,
                     Comment1 = textBox1.Text,
                     Time = DateTime.Now,
                     Status = true

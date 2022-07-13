@@ -89,10 +89,11 @@ namespace DataAccess
                 }
                 else
                 {
-                    events = listEvent.Join(listFollow,
-                        evt => evt.Id,
-                        follow => follow.IdEvent,
-                        (evt, follow) => evt);
+                    events = from e in context.Events
+                             join fl in context.Follows
+                             on e.Id equals fl.IdEvent
+                             where fl.IdUser == idUserfollow
+                             select e;
                 }
             }
             catch (Exception ex)
